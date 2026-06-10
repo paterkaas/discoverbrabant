@@ -813,7 +813,7 @@ const locations = [
     desc:'A large car-free holiday park in the village of Eersel, in the Brabantse Kempen and a short drive south of Eindhoven. Heated indoor and outdoor pools, a supervised beach lake, extensive playgrounds and several restaurants. Consistently the top-rated park in North Brabant for British families with children.',
     markerColor:'#2E6E4E', markerIcon:'\uD83C\uDFE1', img:'images/terspegelt.jpg',
     chips:[{icon:'\u2708\uFE0F',label:'Eindhoven Airport',time:'20 min'},{icon:'\u2708\uFE0F',label:'Rotterdam Airport',time:'1 hr 10 min'},{icon:'\u26F4\uFE0F',label:'Hook of Holland',time:'1 hr 45 min'},{icon:'\uD83C\uDFA2',label:'Efteling',time:'40 min'},{icon:'\uD83E\uDD81',label:'Beekse Bergen',time:'35 min'}],
-    bookUrl:'https://www.terspegelt.nl', reviewCount:0,
+    bookUrl:'https://www.terspegelt.nl/holiday/?tt=34175_12_502758_&r=%2Fen%2F', reviewCount:0,
     reviews:[]
   },
   { id:'kempervennen', category:'bungalow', accomType:'Holiday park', town:'Westerhoven',
@@ -884,7 +884,7 @@ const locations = [
     desc:'A reliable taxi service for transfers between Eindhoven Airport, PSV Stadion and the major holiday parks in North Brabant. A good option for families who prefer not to hire a car.',
     markerColor:'#D4A51A', markerIcon:'\uD83D\uDE95', img:null,
     chips:[{icon:'\u2708\uFE0F',label:'Eindhoven Airport',time:'10 min'},{icon:'⚽',label:'PSV Stadion',time:'12 min by bus'},{icon:'🏡',label:'TerSpegelt',time:'30 min'},{icon:'💶',label:'Fixed price transfers',time:'from €45'}],
-    bookUrl:null, reviewCount:0, reviews:[]
+    bookUrl:'https://www.taxi2airport.com/nl/drive/?tt=36496_12_502758_&r=', reviewCount:0, reviews:[]
   },
   { id:'eindhoven-city', category:'attraction', accomType:'City destination', town:'Eindhoven',
     name:'Eindhoven city centre', lat:51.4416, lng:5.4697,
@@ -933,7 +933,7 @@ const locations = [
     desc:'At Kaatsheuvel, and consistently rated one of the top theme parks in Europe. A family-of-four ticket costs around \u00A3120, against \u00A3250+ at Alton Towers. The extraordinary fairy-tale theming leaves a lasting impression on children of all ages.',
     markerColor:'#8B3D91', markerIcon:'\uD83C\uDFA2', img:'images/efteling.jpg',
     chips:[{icon:'\uD83C\uDFE1',label:'TerSpegelt',time:'40 min'},{icon:'\u26FA',label:'Beekse Bergen',time:'25 min'},{icon:'\uD83D\uDCB7',label:'Family ticket (4)',time:'~\u00A3120'},{icon:'\uD83D\uDD57',label:'Opening hours',time:'10am\u20136pm'}],
-    bookUrl:'https://www.efteling.com', reviewCount:0,
+    bookUrl:'https://tc.tradetracker.net/?c=25801&m=12&a=502758&r=&u=%2F', reviewCount:0,
     reviews:[]
   },
   { id:'beeksesafari', category:'attraction', accomType:'Safari park', town:'Hilvarenbeek',
@@ -942,7 +942,7 @@ const locations = [
     desc:'At Hilvarenbeek, one of the largest wildlife parks in Europe. Explore by car, bus, boat or on foot among lions, giraffes, elephants and more. A superb full-day trip, and the reason many families choose to stay nearby.',
     markerColor:'#8B3D91', markerIcon:'\uD83E\uDD92', img:'images/beeksebergen.jpg',
     chips:[{icon:'\uD83C\uDFE1',label:'TerSpegelt',time:'35 min'},{icon:'\u26FA',label:'Beekse Bergen park',time:'10 min walk'},{icon:'\uD83D\uDCB7',label:'Family ticket (4)',time:'~\u00A395'},{icon:'\uD83D\uDD57',label:'Opening hours',time:'10am\u20135pm'}],
-    bookUrl:'https://www.beeksebergen.nl/en/safaripark', reviewCount:0,
+    bookUrl:'https://www.beeksebergen.nl/ttnl/?tt=17213_12_502758_&r=%2F', reviewCount:0,
     reviews:[]
   }
 ];
@@ -1096,8 +1096,9 @@ function openLocation(id) {
   if (loc.bookUrl) {
     ctaBlock.style.display = 'block';
     if (loc.category === 'attraction') ctaBook.textContent = 'Get tickets directly \u2192';
-    else ctaBook.textContent = `Book ${loc.name.split(' ')[0]} directly on their website \u2192`;
-    ctaBook.onclick = () => window.open(loc.bookUrl + '?ref=discoverbrabant', '_blank');
+    else if (loc.category === 'taxi') ctaBook.textContent = 'Book a transfer \u2192';
+    else ctaBook.textContent = 'Book directly on their website \u2192';
+    ctaBook.onclick = () => window.open(loc.bookUrl, '_blank', 'noopener');
   } else {
     ctaBlock.style.display = 'none';
   }
