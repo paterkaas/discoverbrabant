@@ -1,15 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-ECRD9C1T9X"></script>
+  <!-- Google tag (gtag.js) with Consent Mode v2 -->
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
+  // Default everything to denied until the visitor makes a choice (EEA/UK compliant)
+  gtag('consent', 'default', {
+    'ad_storage': 'denied',
+    'ad_user_data': 'denied',
+    'ad_personalization': 'denied',
+    'analytics_storage': 'denied',
+    'wait_for_update': 500
+  });
+  // Re-apply a previously saved choice so we don't ask again
+  try {
+    if (localStorage.getItem('db-consent') === 'granted') {
+      gtag('consent', 'update', {
+        'ad_storage': 'granted',
+        'ad_user_data': 'granted',
+        'ad_personalization': 'granted',
+        'analytics_storage': 'granted'
+      });
+    }
+  } catch(e){}
   gtag('js', new Date());
-
   gtag('config', 'G-ECRD9C1T9X');
 </script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ECRD9C1T9X"></script>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Discover Brabant – British family holidays in the Netherlands</title>
@@ -375,6 +393,24 @@
       .btn-primary,.btn-ghost{width:100%;justify-content:center;padding:.95rem 1.4rem}
       .landing-stats{gap:1.6rem;flex-wrap:wrap}
       .r-quote{font-size:.88rem}
+    }
+    /* COOKIE CONSENT BANNER */
+    .consent{position:fixed;left:0;right:0;bottom:0;z-index:2000;background:var(--green);color:var(--cream);box-shadow:0 -8px 30px rgba(0,0,0,.28);padding:1.15rem 5%;display:none;align-items:center;justify-content:space-between;gap:1.5rem;flex-wrap:wrap}
+    .consent.show{display:flex}
+    .consent-text{font-family:'DM Sans',sans-serif;font-size:.82rem;line-height:1.6;color:rgba(246,240,228,.85);max-width:680px}
+    .consent-text strong{color:var(--cream);font-weight:600}
+    .consent-text a{color:var(--gold);text-decoration:underline}
+    .consent-actions{display:flex;gap:.7rem;flex-wrap:wrap;flex-shrink:0}
+    .consent-btn{font-family:'DM Sans',sans-serif;font-size:.8rem;font-weight:600;letter-spacing:.03em;padding:.7rem 1.4rem;border:none;cursor:pointer;transition:all .15s}
+    .consent-accept{background:var(--terra);color:var(--white)}
+    .consent-accept:hover{background:#a84d22}
+    .consent-reject{background:transparent;color:var(--cream);border:1.5px solid rgba(246,240,228,.4)}
+    .consent-reject:hover{border-color:var(--cream);background:rgba(246,240,228,.08)}
+    .cookie-link{background:none;border:none;color:inherit;font:inherit;text-decoration:underline;cursor:pointer;padding:0}
+    @media(max-width:620px){
+      .consent{padding:1.1rem 6%}
+      .consent-actions{width:100%}
+      .consent-btn{flex:1;text-align:center}
     }
   </style>
 </head>
@@ -821,8 +857,19 @@
 
 <footer>
   <p>&copy; 2026 <span>DiscoverBrabant.co.uk</span> &mdash; Affiliate links may earn a small commission at no extra cost to you.</p>
-  <p>Reviews loaded live from Google. &nbsp;&middot;&nbsp; <a href="privacy.html" style="color:var(--gold);text-decoration:underline">Privacy &amp; cookies</a></p>
+  <p>Reviews loaded live from Google. &nbsp;&middot;&nbsp; <a href="privacy.html" style="color:var(--gold);text-decoration:underline">Privacy &amp; cookies</a> &nbsp;&middot;&nbsp; <button class="cookie-link" onclick="showConsent()" style="color:var(--gold)">Cookie settings</button></p>
 </footer>
+
+<!-- COOKIE CONSENT BANNER -->
+<div class="consent" id="consent-banner" role="dialog" aria-live="polite" aria-label="Cookie consent">
+  <div class="consent-text">
+    <strong>We use cookies.</strong> We'd like to use analytics cookies (Google Analytics) to see how the site is used and to improve it. We only set them if you agree. See our <a href="privacy.html">privacy &amp; cookies policy</a> for details.
+  </div>
+  <div class="consent-actions">
+    <button class="consent-btn consent-reject" onclick="setConsent(false)">Reject</button>
+    <button class="consent-btn consent-accept" onclick="setConsent(true)">Accept</button>
+  </div>
+</div>
 
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script>
@@ -1336,6 +1383,30 @@ async function loadGoogleReviews(){
     if (listEl) listEl.innerHTML = `<p style="font-family:'DM Sans',sans-serif;font-size:.9rem;color:var(--muted);padding:1rem 0">Live reviews are temporarily unavailable.</p>`;
   }
 }
+
+/* ─── COOKIE CONSENT ───────────────────────────────────────────── */
+function setConsent(granted) {
+  try { localStorage.setItem('db-consent', granted ? 'granted' : 'denied'); } catch(e){}
+  if (granted) {
+    gtag('consent', 'update', {
+      'ad_storage': 'granted',
+      'ad_user_data': 'granted',
+      'ad_personalization': 'granted',
+      'analytics_storage': 'granted'
+    });
+    // META PIXEL: when you add the Pixel, initialise it here so it only
+    // fires after consent, e.g.  if (window.fbq) fbq('consent', 'grant');
+  }
+  document.getElementById('consent-banner').classList.remove('show');
+}
+function showConsent() {
+  document.getElementById('consent-banner').classList.add('show');
+}
+(function initConsent(){
+  let choice = null;
+  try { choice = localStorage.getItem('db-consent'); } catch(e){}
+  if (!choice) showConsent();
+})();
 
 buildPicks();
 loadGoogleReviews();
