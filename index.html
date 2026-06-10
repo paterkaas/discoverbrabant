@@ -24,7 +24,7 @@
     }
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
     html{scroll-behavior:smooth}
-    body{font-family:'Lora',Georgia,serif;background:var(--white);color:var(--ink);min-height:100vh}
+    body{font-family:'Lora',Georgia,serif;background:var(--white);color:var(--ink);min-height:100vh;overflow-x:hidden}
 
     /* ETA BANNER */
     .eta-banner{background:#7a3a00;color:#ffe8cc;font-family:'DM Sans',sans-serif;font-size:.8rem;padding:.55rem 5%;display:flex;align-items:center;justify-content:space-between;gap:1rem}
@@ -41,6 +41,7 @@
     .nav-links li a:hover,.nav-links li a.active{color:var(--gold)}
     .trust-pill{font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:500;background:rgba(201,153,63,.18);color:var(--gold);padding:.3rem .8rem;display:flex;align-items:center;gap:.4rem;cursor:pointer;transition:background .15s}
     .trust-pill:hover{background:rgba(201,153,63,.3)}
+    .nav-toggle{display:none;background:none;border:none;color:var(--cream);font-size:1.5rem;line-height:1;cursor:pointer;padding:.3rem .4rem}
 
     /* PAGES */
     .page{display:none;animation:fadeUp .38s ease both}
@@ -353,8 +354,27 @@
       #map{height:55vh}
       .map-wrap{height:55vh}
       .sidebar{border-left:none;border-top:1px solid var(--warm)}
+      .sidebar-detail{height:auto}
+      .detail-body{overflow-y:visible}
       nav{padding:0 1.1rem}
-      .nav-links{gap:1rem}
+      .nav-toggle{display:block}
+      .trust-pill{display:none}
+      .nav-links{position:absolute;top:60px;left:0;right:0;flex-direction:column;gap:0;background:var(--green);display:none;box-shadow:0 10px 24px rgba(0,0,0,.28);border-top:1px solid rgba(246,240,228,.08)}
+      nav.nav-open .nav-links{display:flex}
+      .nav-links li{width:100%}
+      .nav-links li a{display:block;padding:1rem 1.3rem;font-size:.85rem;border-bottom:1px solid rgba(246,240,228,.07)}
+      .review-row{grid-template-columns:1fr;padding:1.15rem 1.25rem}
+      .r-park-badge{justify-self:start;margin-top:.2rem}
+      .detail-cta .cta-book{font-size:.85rem;padding:.95rem}
+    }
+    @media(max-width:480px){
+      .eta-banner{font-size:.72rem;padding:.5rem 5%}
+      .landing-content{padding:0 6% 6vh}
+      .landing-sub{font-size:.9rem}
+      .landing-btns{gap:.7rem}
+      .btn-primary,.btn-ghost{width:100%;justify-content:center;padding:.95rem 1.4rem}
+      .landing-stats{gap:1.6rem;flex-wrap:wrap}
+      .r-quote{font-size:.88rem}
     }
   </style>
 </head>
@@ -367,7 +387,7 @@
 </div>
 
 <!-- NAV -->
-<nav>
+<nav id="mainnav">
   <div class="nav-logo" onclick="showPage('landing')">Discover<span>Brabant</span></div>
   <ul class="nav-links">
     <li><a onclick="showPage('landing')" id="nav-landing" class="active">Home</a></li>
@@ -376,6 +396,7 @@
     <li><a onclick="showPage('info')" id="nav-info">Travel information</a></li>
   </ul>
   <div class="trust-pill" onclick="showPage('reviews')">&#9733; &nbsp; Real guest reviews &mdash; read them</div>
+  <button class="nav-toggle" onclick="toggleNav()" aria-label="Open menu">&#9776;</button>
 </nav>
 
 
@@ -1060,6 +1081,12 @@ function openLocation(id) {
   document.getElementById('sidebar-default').style.display = 'none';
   const detail = document.getElementById('sidebar-detail');
   detail.classList.add('visible');
+  if (window.innerWidth <= 780) {
+    requestAnimationFrame(() => {
+      const y = detail.getBoundingClientRect().top + window.scrollY - 70;
+      window.scrollTo({ top: y, behavior: 'smooth' });
+    });
+  }
 
   // Photo
   const photo = document.getElementById('detail-photo-img');
@@ -1117,12 +1144,17 @@ function closeSidebar() {
   if (map) { map.flyTo([51.55, 4.95], 9, {duration:.7}); map.closePopup(); }
 }
 
+function toggleNav() {
+  document.getElementById('mainnav').classList.toggle('nav-open');
+}
+
 function showPage(id) {
   document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
   document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
   document.getElementById('page-'+id).classList.add('active');
   const navEl = document.getElementById('nav-'+id);
   if (navEl) navEl.classList.add('active');
+  document.getElementById('mainnav').classList.remove('nav-open');
   window.scrollTo({top:0,behavior:'smooth'});
   if (id === 'map') requestAnimationFrame(()=>{ initMap(); if(map) map.invalidateSize(); });
   if (id === 'reviews') loadGoogleReviews();
