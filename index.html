@@ -275,7 +275,6 @@
     footer{background:var(--ink);padding:2rem 5%;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
     footer p{font-family:'DM Sans',sans-serif;font-size:.72rem;color:rgba(255,255,255,.3)}
     footer span{color:var(--gold)}
-    .proto-label{position:fixed;bottom:1.5rem;right:1.5rem;background:var(--green2);color:#fff;font-family:'DM Sans',sans-serif;font-size:.68rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;padding:.35rem .85rem;z-index:9999;pointer-events:none}
 
     /* ─── PROTOTYPE 4 ADDITIONS ─────────────────────── */
     /* calmer practical-note blocks (replaces the alarming red 'warn' style) */
@@ -376,7 +375,7 @@
     <li><a onclick="showPage('reviews')" id="nav-reviews">All reviews</a></li>
     <li><a onclick="showPage('info')" id="nav-info">Travel information</a></li>
   </ul>
-  <div class="trust-pill" onclick="showPage('reviews')">&#9733; &nbsp; 214 British families &mdash; read reviews</div>
+  <div class="trust-pill" onclick="showPage('reviews')">&#9733; &nbsp; Real guest reviews &mdash; read them</div>
 </nav>
 
 
@@ -397,8 +396,8 @@
           <button class="btn-ghost" onclick="showPage('reviews')">Read reviews</button>
         </div>
         <div class="landing-stats">
-          <div class="l-stat"><span class="l-stat-num">214</span><span class="l-stat-label">British families reviewed</span></div>
-          <div class="l-stat"><span class="l-stat-num">14</span><span class="l-stat-label">Places on the map</span></div>
+          <div class="l-stat"><span class="l-stat-num">7</span><span class="l-stat-label">Holiday parks compared</span></div>
+          <div class="l-stat"><span class="l-stat-num">16</span><span class="l-stat-label">Places on the map</span></div>
         </div>
       </div>
     </div>
@@ -509,29 +508,12 @@
     <div class="landing-reviews">
       <div class="strip-label">What British families say</div>
       <h2 class="strip-title">Hear it from people like you</h2>
-      <p class="strip-sub">Unedited reviews from British visitors, collected from Google and TripAdvisor.</p>
-      <div class="review-row-mini">
-        <div class="review-mini-card">
-          <div class="rmc-park">TerSpegelt</div>
-          <div class="rmc-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-          <p class="rmc-quote">The kids were out from 9am until dinner. No cars on the park, immaculate pools, staff brilliant in English. We will not go back to a UK holiday park.</p>
-          <div class="rmc-author">Sarah H., Leeds &middot; August 2024</div>
-        </div>
-        <div class="review-mini-card">
-          <div class="rmc-park">TerSpegelt</div>
-          <div class="rmc-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-          <p class="rmc-quote">Flew Ryanair to Eindhoven, 25-minute taxi to the park. No Dover queues, no motorway stress. Total game changer. Would absolutely do it again.</p>
-          <div class="rmc-author">Mark &amp; family, Bristol &middot; July 2024</div>
-        </div>
-        <div class="review-mini-card">
-          <div class="rmc-park">Efteling Grand Hotel</div>
-          <div class="rmc-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-          <p class="rmc-quote">We wanted comfort, not camping. The spa hotel was beautiful and we could walk into the theme park each morning. The children were spellbound.</p>
-          <div class="rmc-author">Claire D., Cardiff &middot; May 2024</div>
-        </div>
+      <p class="strip-sub">Loaded live from Google &mdash; real, unedited reviews from recent guests.</p>
+      <div class="review-row-mini" id="featured-reviews">
+        <div class="review-mini-card"><p class="rmc-quote" style="font-style:normal;color:var(--muted)">Loading recent Google reviews&hellip;</p></div>
       </div>
       <div style="margin-top:1.5rem">
-        <button class="btn-primary" onclick="showPage('reviews')">Read all 214 reviews &rsaquo;</button>
+        <button class="btn-primary" onclick="showPage('reviews')">Read all guest reviews &rsaquo;</button>
       </div>
     </div>
 
@@ -638,116 +620,13 @@
     <p>English-language reviews only &mdash; collected from Google and TripAdvisor.</p>
   </div>
   <div class="reviews-wrapper">
-    <div class="filter-row">
+    <div class="filter-row" id="review-filters">
       <button class="filter-btn active" onclick="filterReviews('all',this)">All places</button>
-      <button class="filter-btn" onclick="filterReviews('terspegelt',this)">TerSpegelt</button>
-      <button class="filter-btn" onclick="filterReviews('beekse',this)">Beekse Bergen</button>
-      <button class="filter-btn" onclick="filterReviews('wellness',this)">Wellness &amp; spa</button>
-      <button class="filter-btn" onclick="filterReviews('families',this)">With children</button>
-      <button class="filter-btn" onclick="filterReviews('5star',this)">5 stars only</button>
     </div>
     <div class="review-list" id="review-list">
-      <div class="review-row" data-park="kempervennen" data-children="yes" data-stars="5">
-        <div>
-          <span class="r-tag">Center Parcs De Kempervennen &middot; Holiday park &middot; Family with kids 7 &amp; 10</span>
-          <div class="r-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-          <p class="r-quote">We have done Center Parcs in the UK for years, so the children felt right at home &mdash; but the Aqua Mundo here was bigger and the forest far quieter. Twenty minutes from the airport, too. A name we trusted, in a region we did not know yet.</p>
-          <div class="r-author"><div class="r-avatar">GR</div><div><div class="r-name">Gemma R.</div><div class="r-meta">Hull &middot; July 2024 &middot; Google</div></div></div>
-          <button class="map-btn" onclick="showPage('map');setTimeout(()=>openLocation('kempervennen'),400)">&#128205; Show on map</button>
-        </div>
-        <span class="r-park-badge">Kempervennen</span>
-      </div>
-      <div class="review-row" data-park="prinsenmeer" data-children="yes" data-stars="4">
-        <div>
-          <span class="r-tag">Oostappen Vakantiepark Prinsenmeer &middot; Lakeside park &middot; Family with three children</span>
-          <div class="r-stars">&#9733;&#9733;&#9733;&#9733;&#9734;</div>
-          <p class="r-quote">The sandy beach by the lake was a huge hit &mdash; our three barely left the water. Great value next to a UK park, and the entertainment team kept everyone busy from morning to night.</p>
-          <div class="r-author"><div class="r-avatar">DM</div><div><div class="r-name">Donna M.</div><div class="r-meta">Stoke &middot; August 2024 &middot; TripAdvisor</div></div></div>
-          <button class="map-btn" onclick="showPage('map');setTimeout(()=>openLocation('prinsenmeer'),400)">&#128205; Show on map</button>
-        </div>
-        <span class="r-park-badge">Prinsenmeer</span>
-      </div>
-      <div class="review-row" data-park="terspegelt" data-children="yes" data-stars="5">
-        <div>
-          <span class="r-tag">TerSpegelt &middot; Bungalow park &middot; Family with kids 6 &amp; 9</span>
-          <div class="r-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-          <p class="r-quote">The kids had the absolute time of their lives. Out from 9am until dinner. No cars on the park, immaculate pools, staff brilliant in English. We will not go back to a UK holiday park.</p>
-          <div class="r-author"><div class="r-avatar">SH</div><div><div class="r-name">Sarah H.</div><div class="r-meta">Leeds &middot; August 2024 &middot; Google</div></div></div>
-          <button class="map-btn" onclick="showPage('map');setTimeout(()=>openLocation('terspegelt'),400)">&#128205; Show on map</button>
-        </div>
-        <span class="r-park-badge">TerSpegelt</span>
-      </div>
-      <div class="review-row" data-park="terspegelt" data-children="yes" data-stars="5">
-        <div>
-          <span class="r-tag">TerSpegelt &middot; Via Eindhoven Airport</span>
-          <div class="r-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-          <p class="r-quote">Flew Ryanair to Eindhoven, 25-minute taxi to the park. No Dover queues, no motorway stress. Just land and relax. Would absolutely do it again next year.</p>
-          <div class="r-author"><div class="r-avatar">MF</div><div><div class="r-name">Mark &amp; family</div><div class="r-meta">Bristol &middot; July 2024 &middot; TripAdvisor</div></div></div>
-          <button class="map-btn" onclick="showPage('map');setTimeout(()=>openLocation('terspegelt'),400)">&#128205; Show on map</button>
-        </div>
-        <span class="r-park-badge">TerSpegelt</span>
-      </div>
-      <div class="review-row" data-park="beekse" data-children="yes" data-stars="4">
-        <div>
-          <span class="r-tag">Beekse Bergen &middot; Camping &middot; Efteling day trip</span>
-          <div class="r-stars">&#9733;&#9733;&#9733;&#9733;&#9734;</div>
-          <p class="r-quote">The Efteling is on another level. Disney but quieter and cheaper. 20 minutes from the campsite. My daughter still talks about it three months later. Only not 5 stars because the park app is Dutch only.</p>
-          <div class="r-author"><div class="r-avatar">LC</div><div><div class="r-name">Lucy C.</div><div class="r-meta">Birmingham &middot; June 2024 &middot; Google</div></div></div>
-          <button class="map-btn" onclick="showPage('map');setTimeout(()=>openLocation('beekse'),400)">&#128205; Show on map</button>
-        </div>
-        <span class="r-park-badge">Beekse Bergen</span>
-      </div>
-      <div class="review-row" data-park="wellness" data-children="yes" data-stars="5">
-        <div>
-          <span class="r-tag">Efteling Grand Hotel &middot; Wellness &middot; Family with kids 5 &amp; 8</span>
-          <div class="r-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-          <p class="r-quote">We wanted comfort, not camping. The spa hotel was beautiful, the rooms huge, and we could walk straight into the Efteling each morning before the crowds. The children were completely spellbound.</p>
-          <div class="r-author"><div class="r-avatar">CD</div><div><div class="r-name">Claire D.</div><div class="r-meta">Cardiff &middot; May 2024 &middot; TripAdvisor</div></div></div>
-          <button class="map-btn" onclick="showPage('map');setTimeout(()=>openLocation('eftelinghotel'),400)">&#128205; Show on map</button>
-        </div>
-        <span class="r-park-badge">Wellness &amp; spa</span>
-      </div>
-      <div class="review-row" data-park="terspegelt" data-children="yes" data-stars="5">
-        <div>
-          <span class="r-tag">TerSpegelt &middot; First family visit</span>
-          <div class="r-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-          <p class="r-quote">We were nervous about taking the kids abroad with all the new border rules, but everything just worked. The outdoor lake is stunning. Already booked again for next year.</p>
-          <div class="r-author"><div class="r-avatar">JT</div><div><div class="r-name">Jenny T.</div><div class="r-meta">Manchester &middot; August 2024 &middot; Google</div></div></div>
-          <button class="map-btn" onclick="showPage('map');setTimeout(()=>openLocation('terspegelt'),400)">&#128205; Show on map</button>
-        </div>
-        <span class="r-park-badge">TerSpegelt</span>
-      </div>
-      <div class="review-row" data-park="beekse" data-children="no" data-stars="5">
-        <div>
-          <span class="r-tag">Beekse Bergen &middot; Couple &middot; Via Eurostar</span>
-          <div class="r-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-          <p class="r-quote">Took the Eurostar from London, intercity south. Most stress-free holiday in years. Flat landscape, perfect for cycling. Boscafes with apple cake every few kilometres.</p>
-          <div class="r-author"><div class="r-avatar">DR</div><div><div class="r-name">Dorothy R.</div><div class="r-meta">Edinburgh &middot; July 2024 &middot; TripAdvisor</div></div></div>
-          <button class="map-btn" onclick="showPage('map');setTimeout(()=>openLocation('beekse'),400)">&#128205; Show on map</button>
-        </div>
-        <span class="r-park-badge">Beekse Bergen</span>
-      </div>
-      <div class="review-row" data-park="terspegelt" data-children="yes" data-stars="5">
-        <div>
-          <span class="r-tag">TerSpegelt &middot; Family with toddler</span>
-          <div class="r-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-          <p class="r-quote">My biggest worry was a two-year-old on holiday but the park is car-free and fenced. She could toddle freely while we sat with a coffee. Pure bliss. Food at the restaurant was huge portions and great value.</p>
-          <div class="r-author"><div class="r-avatar">RP</div><div><div class="r-name">Rachel P.</div><div class="r-meta">Sheffield &middot; July 2024 &middot; Google</div></div></div>
-          <button class="map-btn" onclick="showPage('map');setTimeout(()=>openLocation('terspegelt'),400)">&#128205; Show on map</button>
-        </div>
-        <span class="r-park-badge">TerSpegelt</span>
-      </div>
-      <div class="review-row" data-park="wellness" data-children="no" data-stars="4">
-        <div>
-          <span class="r-tag">Efteling Grand Hotel &middot; Wellness &middot; Couple</span>
-          <div class="r-stars">&#9733;&#9733;&#9733;&#9733;&#9734;</div>
-          <p class="r-quote">A lovely grown-up break. The spa was excellent and the food first class. Pricier than a campsite, but for a relaxing few nights without the kids it was worth every penny.</p>
-          <div class="r-author"><div class="r-avatar">PH</div><div><div class="r-name">Paul H.</div><div class="r-meta">Newcastle &middot; September 2024 &middot; Google</div></div></div>
-          <button class="map-btn" onclick="showPage('map');setTimeout(()=>openLocation('eftelinghotel'),400)">&#128205; Show on map</button>
-        </div>
-        <span class="r-park-badge">Wellness &amp; spa</span>
-      </div>
+      <p style="font-family:'DM Sans',sans-serif;font-size:.9rem;color:var(--muted);padding:1rem 0">Loading reviews live from Google&hellip;</p>
     </div>
+    <p id="reviews-attribution" style="font-family:'DM Sans',sans-serif;font-size:.72rem;color:var(--muted);margin-top:1.5rem;display:none">Reviews provided by <strong>Google</strong>. Each review links to its author&rsquo;s public Google profile.</p>
   </div>
 </div>
 
@@ -921,10 +800,8 @@
 
 <footer>
   <p>&copy; 2026 <span>DiscoverBrabant.co.uk</span> &mdash; Affiliate links may earn a small commission at no extra cost to you.</p>
-  <p>Reviews sourced from Google &amp; TripAdvisor. English-language reviews only.</p>
+  <p>Reviews loaded live from Google. &nbsp;&middot;&nbsp; <a href="privacy.html" style="color:var(--gold);text-decoration:underline">Privacy &amp; cookies</a></p>
 </footer>
-
-<div class="proto-label">Prototype &middot; Final version</div>
 
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script>
@@ -936,12 +813,8 @@ const locations = [
     desc:'A large car-free holiday park in the village of Eersel, in the Brabantse Kempen and a short drive south of Eindhoven. Heated indoor and outdoor pools, a supervised beach lake, extensive playgrounds and several restaurants. Consistently the top-rated park in North Brabant for British families with children.',
     markerColor:'#2E6E4E', markerIcon:'\uD83C\uDFE1', img:'images/terspegelt.jpg',
     chips:[{icon:'\u2708\uFE0F',label:'Eindhoven Airport',time:'20 min'},{icon:'\u2708\uFE0F',label:'Rotterdam Airport',time:'1 hr 10 min'},{icon:'\u26F4\uFE0F',label:'Hook of Holland',time:'1 hr 45 min'},{icon:'\uD83C\uDFA2',label:'Efteling',time:'40 min'},{icon:'\uD83E\uDD81',label:'Beekse Bergen',time:'35 min'}],
-    bookUrl:'https://www.terspegelt.nl', reviewCount:87,
-    reviews:[
-      {stars:5,text:'Kids out from 9am until dinner. No cars, immaculate pools, staff brilliant in English. Never going back to a UK holiday park.',author:'Sarah H., Leeds'},
-      {stars:5,text:'Flew into Rotterdam, an hour\u2019s drive to the park. No Dover queues whatsoever. Total game changer.',author:'Mark & family, Bristol'},
-      {stars:5,text:'My two-year-old could toddle freely \u2014 car-free and fenced. We sat with a coffee while she played. Pure bliss.',author:'Rachel P., Sheffield'}
-    ]
+    bookUrl:'https://www.terspegelt.nl', reviewCount:0,
+    reviews:[]
   },
   { id:'kempervennen', category:'bungalow', accomType:'Holiday park', town:'Westerhoven',
     name:'Center Parcs De Kempervennen', lat:51.3403, lng:5.3144,
@@ -949,11 +822,8 @@ const locations = [
     desc:'Part of the Center Parcs family that many British visitors recognise from holidays in the UK. De Kempervennen sits in the woods near Westerhoven, close to Eindhoven, with a large subtropical swimming paradise, a watersports lake, forest lodges and plenty of indoor activities for changeable weather.',
     markerColor:'#2E6E4E', markerIcon:'\uD83C\uDFE1', img:'images/center-parcs-kempervennen-2024-3.jpg',
     chips:[{icon:'\u2708\uFE0F',label:'Eindhoven Airport',time:'20 min'},{icon:'\u2708\uFE0F',label:'Rotterdam Airport',time:'1 hr 15 min'},{icon:'\u26F4\uFE0F',label:'Hook of Holland',time:'1 hr 50 min'},{icon:'\uD83C\uDFA2',label:'Efteling',time:'45 min'}],
-    bookUrl:'https://www.centerparcs.com', reviewCount:46,
-    reviews:[
-      {stars:5,text:'We have done Center Parcs in the UK for years, so the children felt right at home \u2014 but the Aqua Mundo here was bigger and the forest far quieter. Twenty minutes from the airport, too.',author:'Gemma R., Hull'},
-      {stars:4,text:'Lovely lodges and a brilliant rainy-day option with the indoor pool. Busy in the school holidays, but for the children that is half the fun.',author:'Andrew P., Coventry'}
-    ]
+    bookUrl:'https://www.centerparcs.com', reviewCount:0,
+    reviews:[]
   },
   { id:'beekse', category:'camping', accomType:'Camping & safari resort', town:'Hilvarenbeek',
     name:'Beekse Bergen Vakantiepark', lat:51.5633, lng:5.0675,
@@ -961,11 +831,8 @@ const locations = [
     desc:'A lakeside resort at Hilvarenbeek, near Tilburg, directly next to Safaripark Beekse Bergen. Large pitches, excellent facilities and a 10-minute walk to one of the best safari parks in Europe. Very popular with British families who return year after year.',
     markerColor:'#946F3D', markerIcon:'\u26FA', img:'images/beeksebergen.jpg',
     chips:[{icon:'\u2708\uFE0F',label:'Eindhoven Airport',time:'30 min'},{icon:'\u2708\uFE0F',label:'Rotterdam Airport',time:'1 hr'},{icon:'\u26F4\uFE0F',label:'Hook of Holland',time:'1 hr 30 min'},{icon:'\uD83E\uDD81',label:'Safari Park',time:'10 min walk'},{icon:'\uD83C\uDFA2',label:'Efteling',time:'25 min'}],
-    bookUrl:'https://www.beeksebergen.nl', reviewCount:54,
-    reviews:[
-      {stars:4,text:'The Efteling is on another level. 25 minutes from the campsite, like Disney but quieter and cheaper. My daughter still talks about it months later.',author:'Lucy C., Birmingham'},
-      {stars:5,text:'Took the Eurostar from London, intercity south. Most stress-free holiday in years. Flat landscape, perfect for cycling.',author:'Dorothy R., Edinburgh'}
-    ]
+    bookUrl:'https://www.beeksebergen.nl', reviewCount:0,
+    reviews:[]
   },
   { id:'flaasbloem', category:'camping', accomType:'Family camping', town:'Chaam',
     name:'Vakantiepark De Flaasbloem', lat:51.5139, lng:4.8639,
@@ -973,10 +840,8 @@ const locations = [
     desc:'A relaxed family park near Chaam, between Breda and the Belgian border. Praised for its calm atmosphere, friendly staff and spotless facilities, with woodland pitches and lodges. A great base for cycling through the Brabant countryside.',
     markerColor:'#946F3D', markerIcon:'\u26FA', img:'images/flaasbloem.jpg',
     chips:[{icon:'\u2708\uFE0F',label:'Eindhoven Airport',time:'45 min'},{icon:'\u2708\uFE0F',label:'Rotterdam Airport',time:'50 min'},{icon:'\u26F4\uFE0F',label:'Hook of Holland',time:'1 hr 15 min'},{icon:'\uD83C\uDFD9\uFE0F',label:'Breda',time:'20 min'}],
-    bookUrl:'https://www.flaasbloem.nl', reviewCount:23,
-    reviews:[
-      {stars:5,text:'Smaller and quieter than the big parks, but that is exactly what we wanted. The cycling paths are perfect and the staff went out of their way to help.',author:'Tom B., Glasgow'}
-    ]
+    bookUrl:'https://www.flaasbloem.nl', reviewCount:0,
+    reviews:[]
   },
   { id:'prinsenmeer', category:'camping', accomType:'Lakeside holiday park', town:'Ommel',
     name:'Oostappen Vakantiepark Prinsenmeer', lat:51.3886, lng:5.7686,
@@ -984,11 +849,8 @@ const locations = [
     desc:'A large, lively lakeside park near Ommel and Asten, in eastern North Brabant. Prinsenmeer is known for its sandy swimming beach, good-value chalets and pitches, and a full programme of children\u2019s entertainment \u2014 a familiar, affordable choice for families who like plenty going on.',
     markerColor:'#946F3D', markerIcon:'\u26FA', img:'images/prinsenmeer.jpg',
     chips:[{icon:'\u2708\uFE0F',label:'Eindhoven Airport',time:'30 min'},{icon:'\u2708\uFE0F',label:'Rotterdam Airport',time:'1 hr 25 min'},{icon:'\u26F4\uFE0F',label:'Hook of Holland',time:'2 hrs'},{icon:'\uD83C\uDFA2',label:'Efteling',time:'50 min'}],
-    bookUrl:'https://www.prinsenmeer.nl', reviewCount:28,
-    reviews:[
-      {stars:4,text:'The sandy beach by the lake was a huge hit \u2014 our three barely left the water. Great value next to a UK park, and the entertainment team kept everyone busy.',author:'Donna M., Stoke'},
-      {stars:5,text:'A friendly, lively park that did not break the bank. Easy drive from the ferry and the children made friends within the hour.',author:'Steven L., Plymouth'}
-    ]
+    bookUrl:'https://www.prinsenmeer.nl', reviewCount:0,
+    reviews:[]
   },
   { id:'depaal', category:'glamping', accomType:'Glamping resort', town:'Bergeijk',
     name:'Vakantiepark De Paal', lat:51.3050, lng:5.1300,
@@ -996,11 +858,8 @@ const locations = [
     desc:'A green, car-free family park in the woods near Bergeijk, close to the Belgian border, known for its glamping lodges and safari tents tucked among the trees. A huge adventure playground, indoor and outdoor pools and a relaxed woodland setting make it a firm favourite with younger families.',
     markerColor:'#6E9B3E', markerIcon:'\uD83C\uDF3F', img:'images/depaal.jpg',
     chips:[{icon:'\u2708\uFE0F',label:'Eindhoven Airport',time:'25 min'},{icon:'\u2708\uFE0F',label:'Rotterdam Airport',time:'1 hr 20 min'},{icon:'\u26F4\uFE0F',label:'Hook of Holland',time:'1 hr 55 min'},{icon:'\uD83C\uDFA2',label:'Efteling',time:'50 min'}],
-    bookUrl:'https://www.depaal.nl', reviewCount:31,
-    reviews:[
-      {stars:5,text:'The safari tent was a brilliant middle ground \u2014 proper beds, but the children felt like they were camping. Loved the woods.',author:'Hannah W., Nottingham'},
-      {stars:5,text:'Quiet, green and very safe for little ones. The adventure playground kept ours busy for hours.',author:'Greg M., Leeds'}
-    ]
+    bookUrl:'https://www.depaal.nl', reviewCount:0,
+    reviews:[]
   },
   { id:'eftelinghotel', category:'wellness', accomType:'Wellness & spa hotel', town:'Kaatsheuvel',
     name:'Efteling Grand Hotel', lat:51.6520, lng:5.0430,
@@ -1008,11 +867,8 @@ const locations = [
     desc:'For families who would rather a comfortable hotel than a tent. The Efteling Grand Hotel is a stylish spa hotel at Kaatsheuvel, right beside the Efteling theme park, with a wellness area, fine dining and direct access to the park each morning before the day crowds arrive.',
     markerColor:'#2E9AA6', markerIcon:'\uD83E\uDDD6', img:'images/efteling.jpg',
     chips:[{icon:'\u2708\uFE0F',label:'Eindhoven Airport',time:'40 min'},{icon:'\u2708\uFE0F',label:'Rotterdam Airport',time:'50 min'},{icon:'\u26F4\uFE0F',label:'Hook of Holland',time:'1 hr 15 min'},{icon:'\uD83C\uDFA2',label:'Efteling',time:'On site'}],
-    bookUrl:'https://www.efteling.com/en/hotel', reviewCount:19,
-    reviews:[
-      {stars:5,text:'We wanted comfort, not camping. Beautiful spa hotel, huge rooms, and we walked straight into the Efteling each morning. The children were spellbound.',author:'Claire D., Cardiff'},
-      {stars:4,text:'A lovely grown-up break. The spa was excellent and the food first class. Pricier than a campsite, but worth every penny.',author:'Paul H., Newcastle'}
-    ]
+    bookUrl:'https://www.efteling.com/en/hotel', reviewCount:0,
+    reviews:[]
   },
   { id:'eindhoven', category:'airport', accomType:'Airport', town:null,
     name:'Eindhoven Airport', lat:51.4501, lng:5.3753,
@@ -1036,7 +892,7 @@ const locations = [
     desc:'Eindhoven is North Brabant’s international tech and design city, with a compact centre that is easy to explore. Football fans can visit PSV Stadion nearby, and the city makes a great first or last stop on the way to the parks.',
     markerColor:'#8B3D91', markerIcon:'🏙️', img:null,
     chips:[{icon:'\u2708\uFE0F',label:'Eindhoven Airport',time:'20 min'},{icon:'⚽',label:'PSV Stadion',time:'10 min by bus'},{icon:'\uD83C\uDFE1',label:'City centre',time:'15 min walk'}],
-    bookUrl:null, reviewCount:0, reviews:[{stars:5,text:'Smart compact city with a friendly feel. The modern design museums and PSV Stadion atmosphere are a great match for a short stopover.',author:'City guide'}]
+    bookUrl:null, reviewCount:0, reviews:[]
   },
   { id:'rotterdam-airport', category:'airport', accomType:'Airport', town:null,
     name:'Rotterdam The Hague Airport', lat:51.9569, lng:4.4372,
@@ -1068,8 +924,8 @@ const locations = [
     desc:'Served by DFDS from Newcastle \u2014 a great option for travellers from Scotland and northern England. Arrive well rested, with a drive of around two and a half hours south to North Brabant. Popular with caravanners.',
     markerColor:'#2A6FB0', markerIcon:'\u26F4\uFE0F', img:null,
     chips:[{icon:'\uD83D\uDE97',label:'Drive to TerSpegelt',time:'2 hrs 15 min'},{icon:'\uD83D\uDE97',label:'Drive to Beekse Bergen',time:'2 hrs'},{icon:'\u26F4\uFE0F',label:'Ferry from Newcastle',time:'overnight'}],
-    bookUrl:null, reviewCount:1,
-    reviews:[{stars:5,text:'Took the night ferry from Newcastle with our caravan. Arrived well rested and drove straight down. No stress whatsoever.',author:'Dorothy R., Edinburgh'}]
+    bookUrl:null, reviewCount:0,
+    reviews:[]
   },
   { id:'efteling', category:'attraction', accomType:'Theme park', town:'Kaatsheuvel',
     name:'Efteling Theme Park', lat:51.6501, lng:5.0489,
@@ -1078,10 +934,7 @@ const locations = [
     markerColor:'#8B3D91', markerIcon:'\uD83C\uDFA2', img:'images/efteling.jpg',
     chips:[{icon:'\uD83C\uDFE1',label:'TerSpegelt',time:'40 min'},{icon:'\u26FA',label:'Beekse Bergen',time:'25 min'},{icon:'\uD83D\uDCB7',label:'Family ticket (4)',time:'~\u00A3120'},{icon:'\uD83D\uDD57',label:'Opening hours',time:'10am\u20136pm'}],
     bookUrl:'https://www.efteling.com', reviewCount:0,
-    reviews:[
-      {stars:5,text:'On another level. Like Disney but quieter, cheaper and with more charm. My daughter still talks about it three months later.',author:'Lucy C., Birmingham'},
-      {stars:5,text:'Went on a Tuesday in July \u2014 not even busy. The theming of every ride is extraordinary. Alton Towers does not come close.',author:'James W., Sheffield'}
-    ]
+    reviews:[]
   },
   { id:'beeksesafari', category:'attraction', accomType:'Safari park', town:'Hilvarenbeek',
     name:'Safaripark Beekse Bergen', lat:51.5530, lng:5.0560,
@@ -1090,9 +943,7 @@ const locations = [
     markerColor:'#8B3D91', markerIcon:'\uD83E\uDD92', img:'images/beeksebergen.jpg',
     chips:[{icon:'\uD83C\uDFE1',label:'TerSpegelt',time:'35 min'},{icon:'\u26FA',label:'Beekse Bergen park',time:'10 min walk'},{icon:'\uD83D\uDCB7',label:'Family ticket (4)',time:'~\u00A395'},{icon:'\uD83D\uDD57',label:'Opening hours',time:'10am\u20135pm'}],
     bookUrl:'https://www.beeksebergen.nl/en/safaripark', reviewCount:0,
-    reviews:[
-      {stars:5,text:'The children could not believe giraffes were right by the car window. A genuinely wild day out.',author:'Emma F., Liverpool'}
-    ]
+    reviews:[]
   }
 ];
 
@@ -1110,9 +961,7 @@ function buildPicks(){
       ? `<div class="pick-thumb" style="background-image:url('${loc.img}')"><div class="pick-dot" style="background:${loc.markerColor};color:#fff">${loc.markerIcon}</div></div>`
       : `<div class="pick-thumb" style="background:${loc.markerColor};display:flex;align-items:center;justify-content:center;font-size:1.1rem">${loc.markerIcon}</div>`;
     const place = loc.town ? `<div class="pick-place">\uD83D\uDCCD ${loc.town}</div>` : '';
-    const meta = loc.reviewCount>0
-      ? `\uD83D\uDCDD ${loc.reviewCount} British review${loc.reviewCount>1?'s':''}`
-      : 'New on the map';
+    const meta = loc.bookUrl ? 'Read guest reviews on the reviews page' : '';
     return `<div class="pick-card" data-cat="${loc.category}" onclick="openLocation('${loc.id}')">
       ${thumb}
       <div class="pick-body">
@@ -1145,8 +994,7 @@ function initMap() {
     });
     const marker = L.marker([loc.lat, loc.lng], {icon}).addTo(map);
     markerRefs[loc.id] = marker;
-    const reviewsLine = loc.reviewCount > 0
-      ? `<div class="popup-reviews">\uD83D\uDCDD ${loc.reviewCount} British review${loc.reviewCount>1?'s':''}</div>` : '';
+    const reviewsLine = '';
     const placeLine = loc.town
       ? `<div class="popup-place">\uD83D\uDCCD ${loc.town}, North Brabant</div>` : '';
     const chip = loc.chips[0] ? `<div class="popup-chip">${loc.chips[0].icon} ${loc.chips[0].label}: <strong>${loc.chips[0].time}</strong></div>` : '';
@@ -1229,16 +1077,12 @@ function openLocation(id) {
     `<div class="chip">${c.icon} ${c.label} <strong>${c.time}</strong></div>`
   ).join('');
 
-  const reviewsHtml = loc.reviews.length > 0 ? `
-    <div class="reviews-label">British family reviews
-      <span class="reviews-count">${loc.reviewCount>0?loc.reviewCount+' total':''}</span></div>
-    ${loc.reviews.map(r=>`
-      <div class="mini-review">
-        <div class="mini-stars">${'\u2605'.repeat(r.stars)}${'\u2606'.repeat(5-r.stars)}</div>
-        <div class="mini-quote">${r.text}</div>
-        <div class="mini-author">${r.author}</div>
-      </div>
-    `).join('')}
+  const gQuery = encodeURIComponent(loc.name + ' ' + (loc.town || '') + ' reviews');
+  const reviewsHtml = loc.bookUrl ? `
+    <div class="reviews-label">Guest reviews</div>
+    <p style="font-size:.8rem;line-height:1.6;color:var(--muted);margin-bottom:.7rem">Real reviews from recent guests are on our reviews page, loaded live from Google.</p>
+    <button class="cta-sec" style="margin-bottom:.5rem" onclick="showPage('reviews')">Read guest reviews &rarr;</button>
+    <a class="cta-sec" style="display:block;text-decoration:none" href="https://www.google.com/search?q=${gQuery}" target="_blank" rel="noopener">View this place on Google &rarr;</a>
   ` : '';
 
   document.getElementById('detail-body').innerHTML = `
@@ -1280,18 +1124,16 @@ function showPage(id) {
   if (navEl) navEl.classList.add('active');
   window.scrollTo({top:0,behavior:'smooth'});
   if (id === 'map') requestAnimationFrame(()=>{ initMap(); if(map) map.invalidateSize(); });
+  if (id === 'reviews') loadGoogleReviews();
 }
 
 function filterReviews(type, btn) {
   document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
   btn.classList.add('active');
   document.querySelectorAll('.review-row').forEach(row => {
-    const show = type==='all'
-      ||(type==='terspegelt'&&row.dataset.park==='terspegelt')
-      ||(type==='beekse'&&row.dataset.park==='beekse')
-      ||(type==='wellness'&&row.dataset.park==='wellness')
-      ||(type==='families'&&row.dataset.children==='yes')
-      ||(type==='5star'&&row.dataset.stars==='5');
+    const show = type === 'all'
+      || (type === '5star' && row.dataset.stars === '5')
+      || (row.dataset.park === type);
     row.style.display = show ? 'grid' : 'none';
   });
 }
@@ -1322,7 +1164,148 @@ function reelNote() {
   if (n) n.textContent = '\u25B6 In the live platform this opens a short video reel \u2014 the clips here are a preview of planned content.';
 }
 
+/* ─── LIVE GOOGLE REVIEWS ─────────────────────────────────────────────
+   Real reviews are fetched live from Google's Places API on page load.
+   Nothing is stored in this file, which keeps it within Google's terms.
+   1. Paste your own Google Maps Platform API key below.
+   2. (Optional) Paste a Google Place ID per place for a precise match;
+      leave it as '' to let Google find the place by name. */
+const GOOGLE_MAPS_API_KEY = "AIzaSyA4Tdj-lp315NufUOR-KPPzfwfomVdxx58";
+
+const REVIEW_PLACES = [
+  { key:'terspegelt',   label:'TerSpegelt',     tag:'Recreatiepark TerSpegelt \u00B7 Bungalow park',                 query:'Recreatiepark TerSpegelt Eersel',                place_id:'' },
+  { key:'kempervennen', label:'Center Parcs',   tag:'Center Parcs De Kempervennen \u00B7 Holiday park',             query:'Center Parcs De Kempervennen Westerhoven',       place_id:'' },
+  { key:'beekse',       label:'Beekse Bergen',  tag:'Vakantiepark Beekse Bergen \u00B7 Camping',                    query:'Vakantiepark Beekse Bergen Hilvarenbeek',        place_id:'' },
+  { key:'prinsenmeer',  label:'Prinsenmeer',    tag:'Oostappen Vakantiepark Prinsenmeer \u00B7 Lakeside park',      query:'Oostappen Vakantiepark Prinsenmeer Ommel',       place_id:'' },
+  { key:'depaal',       label:'De Paal',        tag:'Vakantiepark De Paal \u00B7 Glamping',                         query:'Vakantiepark De Paal Bergeijk',                  place_id:'' },
+  { key:'eftelinghotel',label:'Efteling Hotel', tag:'Efteling Grand Hotel \u00B7 Wellness & spa',                   query:'Efteling Grand Hotel Kaatsheuvel',               place_id:'' },
+  { key:'efteling',     label:'Efteling',       tag:'Efteling Theme Park \u00B7 Attraction',                        query:'Efteling Kaatsheuvel',                           place_id:'' }
+];
+
+const PREFER_ENGLISH = true;   // show English-language reviews first (your audience is UK families)
+let reviewsLoaded = false;
+
+function starString(n){ n = Math.round(n||0); return '\u2605'.repeat(n) + '\u2606'.repeat(5-n); }
+function escHtml(s){ return (s||'').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
+
+function ensureMapsLoader(){
+  if (window.google && window.google.maps && google.maps.importLibrary) return;
+  ((g)=>{let h,a,k,p="The Google Maps JavaScript API",c="google",l="importLibrary",q="__ib__",m=document,b=window;b=b[c]||(b[c]={});let d=b.maps||(b.maps={}),r=new Set,e=new URLSearchParams,u=()=>h||(h=new Promise(async(f,n)=>{await(a=m.createElement("script"));e.set("libraries",[...r]+"");for(k in g)e.set(k.replace(/[A-Z]/g,t=>"_"+t[0].toLowerCase()),g[k]);e.set("callback",c+".maps."+q);a.src=`https://maps.${c}apis.com/maps/api/js?`+e;d[q]=f;a.onerror=()=>h=n(Error(p+" could not load."));a.nonce=m.querySelector("script[nonce]")?.nonce||"";m.head.append(a)}));d[l]?console.warn(p+" only loads once. Ignoring:",g):d[l]=(f,...n)=>r.add(f)&&u().then(()=>d[l](f,...n))})({key:GOOGLE_MAPS_API_KEY,v:"weekly"});
+}
+
+async function loadGoogleReviews(){
+  if (reviewsLoaded) return;
+  reviewsLoaded = true;
+
+  const listEl    = document.getElementById('review-list');
+  const filterEl  = document.getElementById('review-filters');
+  const attrEl    = document.getElementById('reviews-attribution');
+  const featured  = document.getElementById('featured-reviews');
+  const noKeyMsg  = 'Add your Google Maps API key in the code and the latest reviews will load here automatically.';
+
+  if (!GOOGLE_MAPS_API_KEY || GOOGLE_MAPS_API_KEY.indexOf('YOUR_') === 0){
+    if (listEl) listEl.innerHTML = `<p style="font-family:'DM Sans',sans-serif;font-size:.9rem;color:var(--muted);padding:1rem 0">${noKeyMsg}</p>`;
+    if (featured) featured.innerHTML = `<div class="review-mini-card"><p class="rmc-quote" style="font-style:normal;color:var(--muted)">${noKeyMsg}</p></div>`;
+    reviewsLoaded = false; // allow a retry once the key is added
+    return;
+  }
+
+  try {
+    ensureMapsLoader();
+    const { Place } = await google.maps.importLibrary("places");
+
+    const collected = [];     // structured review objects
+    const placesWithReviews = [];
+
+    for (const p of REVIEW_PLACES){
+      try {
+        let place;
+        if (p.place_id){
+          place = new Place({ id: p.place_id });
+        } else {
+          const { places } = await Place.searchByText({
+            textQuery: p.query, fields: ['id','displayName'], maxResultCount: 1, region: 'nl'
+          });
+          if (!places || !places.length) continue;
+          place = places[0];
+        }
+        await place.fetchFields({ fields: ['reviews'] });
+        let revs = place.reviews || [];
+        if (PREFER_ENGLISH){
+          const en = revs.filter(r => (r.textLanguageCode||'').toLowerCase().startsWith('en'));
+          if (en.length) revs = en;
+        }
+        if (!revs.length) continue;
+        placesWithReviews.push(p);
+
+        for (const r of revs){
+          const text = (typeof r.text === 'string') ? r.text : (r.text && r.text.text) || '';
+          if (!text) continue;
+          const author = r.authorAttribution || {};
+          collected.push({
+            key: p.key, label: p.label, tag: p.tag,
+            stars: Math.round(r.rating || 0),
+            text,
+            authorName: author.displayName || 'Google user',
+            authorUri: author.uri || '',
+            when: r.relativePublishTimeDescription || ''
+          });
+        }
+      } catch(err){ console.warn('Reviews for', p.query, 'could not load:', err); }
+    }
+
+    if (!collected.length){
+      if (listEl) listEl.innerHTML = `<p style="font-family:'DM Sans',sans-serif;font-size:.9rem;color:var(--muted);padding:1rem 0">No reviews could be loaded right now \u2014 please try again later.</p>`;
+      return;
+    }
+
+    // Reviews page
+    if (filterEl){
+      filterEl.innerHTML = `<button class="filter-btn active" onclick="filterReviews('all',this)">All places</button>`
+        + placesWithReviews.map(p => `<button class="filter-btn" onclick="filterReviews('${p.key}',this)">${escHtml(p.label)}</button>`).join('')
+        + `<button class="filter-btn" onclick="filterReviews('5star',this)">5 stars only</button>`;
+    }
+    if (listEl){
+      listEl.innerHTML = collected.map(r => {
+        const initials = r.authorName.trim().split(/\s+/).map(w=>w[0]).slice(0,2).join('').toUpperCase() || 'G';
+        const name = r.authorUri
+          ? `<a href="${r.authorUri}" target="_blank" rel="noopener" style="color:inherit;text-decoration:none">${escHtml(r.authorName)}</a>`
+          : escHtml(r.authorName);
+        const when = r.when ? ' \u00B7 ' + escHtml(r.when) : '';
+        return `
+        <div class="review-row" data-park="${r.key}" data-stars="${r.stars}">
+          <div>
+            <span class="r-tag">${escHtml(r.tag)}</span>
+            <div class="r-stars">${starString(r.stars)}</div>
+            <p class="r-quote">${escHtml(r.text)}</p>
+            <div class="r-author"><div class="r-avatar">${escHtml(initials)}</div><div><div class="r-name">${name}</div><div class="r-meta">via Google${when}</div></div></div>
+          </div>
+          <span class="r-park-badge">${escHtml(r.label)}</span>
+        </div>`;
+      }).join('');
+    }
+    if (attrEl) attrEl.style.display = 'block';
+
+    // Homepage featured strip: first three reviews, prefer 5-star
+    if (featured){
+      const top = collected.slice().sort((a,b)=>b.stars-a.stars).slice(0,3);
+      featured.innerHTML = top.map(r => `
+        <div class="review-mini-card">
+          <div class="rmc-park">${escHtml(r.label)}</div>
+          <div class="rmc-stars">${starString(r.stars)}</div>
+          <p class="rmc-quote">${escHtml(r.text)}</p>
+          <div class="rmc-author">${escHtml(r.authorName)} \u00B7 via Google</div>
+        </div>`).join('');
+    }
+  } catch(err){
+    console.warn('Google reviews failed to load:', err);
+    reviewsLoaded = false;
+    if (listEl) listEl.innerHTML = `<p style="font-family:'DM Sans',sans-serif;font-size:.9rem;color:var(--muted);padding:1rem 0">Live reviews are temporarily unavailable.</p>`;
+  }
+}
+
 buildPicks();
+loadGoogleReviews();
 </script>
 </body>
 </html>
