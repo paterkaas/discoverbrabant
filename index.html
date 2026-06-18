@@ -44,12 +44,6 @@
     html{scroll-behavior:smooth}
     body{font-family:'Lora',Georgia,serif;background:var(--white);color:var(--ink);min-height:100vh;overflow-x:hidden}
 
-    /* ETA BANNER */
-    .eta-banner{background:#7a3a00;color:#ffe8cc;font-family:'DM Sans',sans-serif;font-size:.8rem;padding:.55rem 5%;display:flex;align-items:center;justify-content:space-between;gap:1rem}
-    .eta-banner a{color:#ffc06a;text-decoration:underline;cursor:pointer}
-    .eta-close{background:none;border:none;color:#ffe8cc;cursor:pointer;font-size:1rem;flex-shrink:0;opacity:.7}
-    .eta-close:hover{opacity:1}
-
     /* NAV */
     nav{position:sticky;top:0;z-index:1000;background:var(--green);display:flex;align-items:center;justify-content:space-between;padding:0 2.5rem;height:60px}
     .nav-logo{font-family:'DM Serif Display',serif;font-size:1.2rem;color:var(--cream);cursor:pointer}
@@ -386,7 +380,6 @@
       .detail-cta .cta-book{font-size:.85rem;padding:.95rem}
     }
     @media(max-width:480px){
-      .eta-banner{font-size:.72rem;padding:.5rem 5%}
       .landing-content{padding:0 6% 6vh}
       .landing-sub{font-size:.9rem}
       .landing-btns{gap:.7rem}
@@ -415,12 +408,6 @@
   </style>
 </head>
 <body>
-
-<!-- ETA BANNER -->
-<div class="eta-banner" id="eta-banner">
-  <span>&#128706; Travelling from the UK? Confused about EES, ETIAS and the UK ETA? <a onclick="showPage('info')">We explain what currently applies and what does not &rarr;</a></span>
-  <button class="eta-close" onclick="document.getElementById('eta-banner').style.display='none'">&#10005;</button>
-</div>
 
 <!-- NAV -->
 <nav id="mainnav">
@@ -930,7 +917,7 @@ const locations = [
     reviews:[]
   },
   { id:'eftelinghotel', category:'wellness', accomType:'Wellness & spa hotel', town:'Kaatsheuvel',
-    name:'Efteling Grand Hotel', lat:51.6520, lng:5.0430,
+    name:'Efteling Grand Hotel', lat:51.6575, lng:5.0410,
     highlight:'A spa hotel beside the Efteling \u2014 comfort, not camping',
     desc:'For families who would rather a comfortable hotel than a tent. The Efteling Grand Hotel is a stylish spa hotel at Kaatsheuvel, right beside the Efteling theme park, with a wellness area, fine dining and direct access to the park each morning before the day crowds arrive.',
     markerColor:'#2E9AA6', markerIcon:'\uD83E\uDDD6', img:'images/efteling.jpg',
@@ -947,7 +934,7 @@ const locations = [
     bookUrl:null, reviewCount:0, reviews:[]
   },
   { id:'eindhoven-taxi', category:'taxi', accomType:'Taxi service', town:'Eindhoven',
-    name:'Eindhoven Taxi & Airport Transfers', lat:51.4495, lng:5.3760,
+    name:'Eindhoven Taxi & Airport Transfers', lat:51.4435, lng:5.3680,
     highlight:'Local airport and park transfers with family-friendly vehicles',
     desc:'A reliable taxi service for transfers between Eindhoven Airport, PSV Stadion and the major holiday parks in North Brabant. A good option for families who prefer not to hire a car.',
     markerColor:'#D4A51A', markerIcon:'\uD83D\uDE95', img:null,
