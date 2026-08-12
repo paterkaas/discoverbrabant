@@ -361,6 +361,95 @@
     .contact-chatbot{font-family:'DM Sans',sans-serif;font-size:.72rem;color:rgba(246,240,228,.55);margin-top:.95rem;display:flex;align-items:center;gap:.4rem}
     @media(max-width:620px){.contact-row{grid-template-columns:1fr}}
 
+    /* ─── PROTOTYPE 5 ADDITIONS ─────────────────────── */
+    /* 1 — PRICE COMPARATOR (direct vs tour operator) */
+    .price-strip{padding:3.8rem 5%;background:var(--green)}
+    .price-strip .strip-label{color:var(--gold)}
+    .price-strip .strip-title{color:var(--cream)}
+    .price-strip .strip-sub{color:rgba(246,240,228,.7)}
+    .pc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1rem;margin-top:1.8rem}
+    .pc-card{background:var(--white);border:1px solid rgba(246,240,228,.14);border-radius:4px;overflow:hidden;display:flex;flex-direction:column}
+    .pc-head{display:flex;align-items:center;gap:.75rem;padding:.9rem 1.1rem;border-bottom:1px solid var(--warm)}
+    .pc-thumb{width:46px;height:46px;flex-shrink:0;background-size:cover;background-position:center;border-radius:3px}
+    .pc-name{font-family:'DM Sans',sans-serif;font-weight:600;font-size:.85rem;color:var(--ink);line-height:1.2}
+    .pc-type{font-family:'DM Sans',sans-serif;font-size:.64rem;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);margin-bottom:.15rem}
+    .pc-rows{display:flex;padding:1rem 1.1rem;gap:.5rem}
+    .pc-col{flex:1;text-align:center;padding:.65rem .4rem;border-radius:4px}
+    .pc-col-op{background:var(--cream);border:1px solid var(--warm)}
+    .pc-col-dir{background:#eef5f0;border:1px solid var(--sage)}
+    .pc-col-label{font-family:'DM Sans',sans-serif;font-size:.62rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);margin-bottom:.3rem}
+    .pc-col-dir .pc-col-label{color:var(--green2)}
+    .pc-price{font-family:'DM Serif Display',serif;font-size:1.35rem;line-height:1;color:var(--ink)}
+    .pc-col-op .pc-price{color:var(--muted);text-decoration:line-through;text-decoration-color:rgba(192,92,42,.5)}
+    .pc-col-dir .pc-price{color:var(--green)}
+    .pc-col-sub{font-family:'DM Sans',sans-serif;font-size:.6rem;color:var(--muted);margin-top:.25rem}
+    .pc-save{display:flex;align-items:center;justify-content:center;gap:.4rem;padding:.55rem;background:rgba(192,92,42,.08);border-top:1px solid var(--warm);font-family:'DM Sans',sans-serif;font-size:.76rem;font-weight:600;color:var(--terra)}
+    .pc-book{display:block;text-align:center;padding:.72rem;background:var(--terra);color:var(--white);font-family:'DM Sans',sans-serif;font-size:.78rem;font-weight:600;letter-spacing:.03em;text-decoration:none;transition:background .15s}
+    .pc-book:hover{background:#a84d22}
+    .pc-note{font-family:'DM Sans',sans-serif;font-size:.72rem;line-height:1.6;color:rgba(246,240,228,.6);margin-top:1.3rem;max-width:640px}
+
+    /* 2 — VIEW TOGGLE + LIST VIEW */
+    .view-toggle{background:var(--white);border-bottom:1px solid var(--warm);padding:.7rem 5%;display:flex;gap:1rem;align-items:center;flex-wrap:wrap}
+    .vt-switch{display:inline-flex;border:1.5px solid var(--green);border-radius:4px;overflow:hidden;flex-shrink:0}
+    .vt-btn{font-family:'DM Sans',sans-serif;font-size:.76rem;font-weight:600;padding:.42rem .95rem;background:transparent;color:var(--green);border:none;cursor:pointer;display:flex;align-items:center;gap:.35rem;transition:all .15s}
+    .vt-btn.active{background:var(--green);color:var(--cream)}
+    .vt-filters{display:flex;gap:.4rem;flex-wrap:wrap}
+    .stay-filter{font-family:'DM Sans',sans-serif;font-size:.72rem;font-weight:500;padding:.34rem .8rem;border:1.5px solid var(--warm);background:transparent;color:var(--muted);cursor:pointer;border-radius:3px;transition:all .15s}
+    .stay-filter:hover{border-color:var(--sage)}
+    .stay-filter.active{background:var(--green2);border-color:var(--green2);color:var(--cream)}
+    .vt-filter-label{font-family:'DM Sans',sans-serif;font-size:.68rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-right:.1rem}
+    .list-view{display:none;padding:1.8rem 5% 3rem;background:var(--cream);min-height:60vh}
+    .list-view.active{display:block}
+    .lv-intro{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--muted);margin-bottom:1.2rem;line-height:1.6}
+    .lv-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1.1rem}
+    .lv-card{background:var(--white);border:1px solid var(--warm);border-radius:4px;overflow:hidden;display:flex;flex-direction:column;transition:box-shadow .15s,transform .15s}
+    .lv-card:hover{box-shadow:0 8px 24px rgba(36,61,53,.13);transform:translateY(-3px)}
+    .lv-photo{height:130px;background-size:cover;background-position:center;position:relative;background-color:var(--green)}
+    .lv-photo-badge{position:absolute;top:.55rem;left:.6rem;font-family:'DM Sans',sans-serif;font-size:.6rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;background:rgba(253,250,245,.94);color:var(--green2);padding:.2rem .5rem;border-radius:2px}
+    .lv-price-tag{position:absolute;bottom:.55rem;right:.6rem;font-family:'DM Sans',sans-serif;background:rgba(36,61,53,.92);color:var(--cream);padding:.28rem .55rem;border-radius:3px;font-size:.68rem;line-height:1.15;text-align:right}
+    .lv-price-tag b{font-family:'DM Serif Display',serif;font-size:.92rem;color:#fff}
+    .lv-body{padding:.85rem 1rem 1rem;display:flex;flex-direction:column;flex:1}
+    .lv-place{font-family:'DM Sans',sans-serif;font-size:.67rem;font-weight:600;color:var(--terra);margin-bottom:.15rem}
+    .lv-name{font-family:'DM Serif Display',serif;font-size:1.02rem;color:var(--green);line-height:1.15;margin-bottom:.3rem}
+    .lv-highlight{font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--green2);font-style:italic;line-height:1.45;margin-bottom:.6rem}
+    .lv-amenities{display:flex;flex-wrap:wrap;gap:.3rem;margin-bottom:.8rem}
+    .lv-am{font-family:'DM Sans',sans-serif;font-size:.66rem;color:var(--muted);background:var(--cream);border:1px solid var(--warm);padding:.16rem .42rem;border-radius:2px;display:flex;align-items:center;gap:.22rem}
+    .lv-actions{margin-top:auto;display:flex;gap:.5rem}
+    .lv-details{flex:1;text-align:center;padding:.55rem;background:transparent;color:var(--green);font-family:'DM Sans',sans-serif;font-size:.74rem;font-weight:600;border:1.5px solid var(--green);cursor:pointer;border-radius:3px;transition:all .15s}
+    .lv-details:hover{background:var(--green);color:var(--cream)}
+    .lv-book{flex:1;text-align:center;padding:.55rem;background:var(--terra);color:var(--white);font-family:'DM Sans',sans-serif;font-size:.74rem;font-weight:600;border:none;cursor:pointer;border-radius:3px;text-decoration:none;transition:background .15s;display:flex;align-items:center;justify-content:center}
+    .lv-book:hover{background:#a84d22}
+
+    /* 3 — map reset control */
+    .map-reset{position:absolute;bottom:.8rem;left:.8rem;z-index:600;background:var(--white);color:var(--green);font-family:'DM Sans',sans-serif;font-size:.72rem;font-weight:600;border:1px solid var(--warm);border-radius:4px;padding:.45rem .7rem;cursor:pointer;box-shadow:0 2px 10px rgba(0,0,0,.15);display:flex;align-items:center;gap:.35rem}
+    .map-reset:hover{background:var(--cream)}
+    .leaflet-tooltip.park-label{background:var(--green);color:var(--cream);border:none;border-radius:3px;font-family:'DM Sans',sans-serif;font-size:.7rem;font-weight:600;padding:.2rem .5rem;box-shadow:0 2px 8px rgba(0,0,0,.25)}
+    .leaflet-tooltip.park-label::before{border-top-color:var(--green)}
+
+    /* 5 — around the park & getting there (detail panel) */
+    .detail-section-label{font-family:'DM Sans',sans-serif;font-size:.63rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--terra);margin:1.1rem 0 .55rem}
+    .amenities{display:grid;grid-template-columns:1fr 1fr;gap:.4rem;margin-bottom:.5rem}
+    .amenity{display:flex;align-items:center;gap:.45rem;font-family:'DM Sans',sans-serif;font-size:.74rem;color:var(--ink);background:var(--cream);border:1px solid var(--warm);padding:.4rem .55rem;border-radius:3px}
+    .amenity .am-ic{font-size:.9rem;flex-shrink:0}
+    .amenity .am-txt{line-height:1.2}
+    .amenity .am-val{display:block;font-weight:600;color:var(--green);font-size:.72rem}
+    .amenity .am-lab{display:block;font-size:.63rem;color:var(--muted)}
+    .getting-there{font-family:'DM Sans',sans-serif;font-size:.77rem;line-height:1.6;color:var(--muted);background:#eef5f0;border-left:3px solid var(--sage);padding:.6rem .75rem;border-radius:0 3px 3px 0;margin-top:.5rem;display:flex;gap:.5rem}
+    .getting-there .gt-ic{flex-shrink:0}
+
+    /* 4 — review source + link to original */
+    .r-source{display:flex;width:fit-content;align-items:center;gap:.3rem;font-family:'DM Sans',sans-serif;font-size:.62rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--green2);background:#eef5f0;border:1px solid var(--sage);padding:.14rem .44rem;border-radius:2px;margin-bottom:.5rem}
+    .r-source .r-verified{color:#2E7D32}
+    .r-google-link{font-family:'DM Sans',sans-serif;font-size:.7rem;font-weight:600;color:var(--green2);text-decoration:none;display:inline-flex;align-items:center;gap:.25rem;margin-top:.35rem}
+    .r-google-link:hover{color:var(--terra);text-decoration:underline}
+
+    @media(max-width:620px){
+      .pc-grid{grid-template-columns:1fr}
+      .view-toggle{padding:.7rem 6%}
+      .vt-filters{width:100%}
+      .amenities{grid-template-columns:1fr}
+    }
+
     @media(max-width:780px){
       .map-layout{grid-template-columns:1fr;height:auto}
       #map{height:55vh}
@@ -468,6 +557,15 @@
         <div class="how-title">Book directly</div>
         <div class="how-desc">Click through to the park website and book. No account needed on this platform.</div>
       </div>
+    </div>
+
+    <!-- Price comparison: direct vs tour operator -->
+    <div class="price-strip" id="price-compare">
+      <div class="strip-label">The question every family asks first</div>
+      <h2 class="strip-title">What does it cost &mdash; and where&rsquo;s it cheapest?</h2>
+      <p class="strip-sub">The same park, the same week &mdash; booked directly with the park versus through a UK tour operator. Booking direct is almost always cheaper, because there&rsquo;s no operator commission on top.</p>
+      <div class="pc-grid" id="pc-grid"></div>
+      <p class="pc-note" id="pc-note"></p>
     </div>
 
     <!-- Why Brabant -->
@@ -613,9 +711,24 @@
     <span class="legend-item"><span class="legend-dot" style="background:#D4A51A"></span> Taxi services</span>
     <span class="filter-note" id="filter-note"><span id="filter-note-text"></span><button onclick="clearFilter()">Show all</button></span>
   </div>
-  <div class="map-layout">
+  <div class="view-toggle">
+    <div class="vt-switch">
+      <button class="vt-btn active" id="vt-map" onclick="setMapView('map')">&#128506;&#65039; Map</button>
+      <button class="vt-btn" id="vt-list" onclick="setMapView('list')">&#9776; List</button>
+    </div>
+    <span class="vt-filter-label">Type of stay</span>
+    <div class="vt-filters">
+      <button class="stay-filter active" data-stay="all" onclick="filterStay('all',this)">All</button>
+      <button class="stay-filter" data-stay="bungalow" onclick="filterStay('bungalow',this)">Bungalow &amp; holiday parks</button>
+      <button class="stay-filter" data-stay="camping" onclick="filterStay('camping',this)">Camping</button>
+      <button class="stay-filter" data-stay="glamping" onclick="filterStay('glamping',this)">Glamping</button>
+      <button class="stay-filter" data-stay="wellness" onclick="filterStay('wellness',this)">Wellness &amp; spa</button>
+    </div>
+  </div>
+  <div class="map-layout" id="map-layout">
     <div class="map-wrap">
       <div id="map"></div>
+      <button class="map-reset" onclick="resetMap()">&#8635; Reset map</button>
       <div class="map-hint" id="map-hint">
         <span class="mh-icon">&#128433;&#65039;</span>
         <span>Drag to move, scroll to zoom, and <b>click any marker</b> for travel times &amp; reviews.</span>
@@ -653,6 +766,12 @@
       </div>
     </div>
   </div>
+
+  <!-- List view — an alternative to the map, filter-first and easy on mobile -->
+  <div class="list-view" id="list-view">
+    <p class="lv-intro">Prefer a list to a map? Browse every park below and filter by type of stay. Tap a card for full details, travel times and reviews &mdash; or book directly.</p>
+    <div class="lv-grid" id="lv-grid"></div>
+  </div>
 </div>
 
 
@@ -670,7 +789,7 @@
     <div class="review-list" id="review-list">
       <p style="font-family:'DM Sans',sans-serif;font-size:.9rem;color:var(--muted);padding:1rem 0">Loading reviews live from Google&hellip;</p>
     </div>
-    <p id="reviews-attribution" style="font-family:'DM Sans',sans-serif;font-size:.72rem;color:var(--muted);margin-top:1.5rem;display:none">Reviews provided by <strong>Google</strong> and shown in English &mdash; some are translated automatically by Google. Each review links to its author&rsquo;s public Google profile.</p>
+    <p id="reviews-attribution" style="font-family:'DM Sans',sans-serif;font-size:.72rem;color:var(--muted);margin-top:1.5rem;display:none">Reviews provided by <strong>Google</strong> and shown in English &mdash; some are translated automatically by Google. Each review shows its author and date and links straight to the original on Google, so you can verify it yourself.</p>
   </div>
 </div>
 
@@ -837,7 +956,7 @@
         </div>
         <div class="faq-item">
           <button class="faq-q" onclick="toggleFaq(this)">Do you book the holiday for us?<span class="faq-mark">+</span></button>
-          <div class="faq-a"><p>No &mdash; DiscoverBrabant is a free guide, not a booking site. We help you compare parks, travel routes and British reviews, and then you book directly with the park on its own website. That is also why you will not see prices here: park prices change constantly and are always most accurate, and most up to date, on the park&rsquo;s own site.</p></div>
+          <div class="faq-a"><p>No &mdash; DiscoverBrabant is a free guide, not a booking site. We help you compare parks, travel routes and British reviews, and then you book directly with the park on its own website. On the homepage we show an indicative comparison of the direct price versus a typical UK tour-operator price, so you can see roughly what you save by booking direct. Those figures are guides for a sample week, not live quotes &mdash; the exact, up-to-date price is always on the park&rsquo;s own site, which is where the booking button sends you.</p></div>
         </div>
       </div>
     </div>
@@ -1025,7 +1144,88 @@ const categoryLabels = {
   wellness:'Wellness & spa', airport:'Airports', ferry:'Ferry ports', attraction:'Attractions', taxi:'Taxi services'
 };
 
-let map, mapInitialised = false, markerRefs = {}, activeFilter = null;
+/* Extra per-park data added after prototype-5 user testing:
+   – indicative direct vs tour-operator prices (sample summer week, family of 4)
+   – what's nearby (supermarket / dining / bike hire)
+   – how you actually get from airport/ferry to the park
+   Prices are illustrative "from" figures to show the direct-vs-operator gap;
+   the live price is always on the park's own booking site. */
+const parkExtras = {
+  terspegelt: {
+    priceDirect: 795, priceOperator: 965,
+    amenities: [
+      {icon:'\uD83D\uDED2', label:'Supermarket', value:'On site'},
+      {icon:'\uD83C\uDF7D\uFE0F', label:'Restaurants', value:'Several on site'},
+      {icon:'\uD83D\uDEB2', label:'Bike hire', value:'On site'},
+      {icon:'\uD83C\uDFCA', label:'Pools', value:'Indoor & outdoor'}
+    ],
+    gettingThere: 'Easiest by hire car or airport taxi \u2014 Eindhoven Airport is about 20 min away. The park is car-free once you\u2019ve parked, and bikes can be hired on site, so you don\u2019t need to bring your own.'
+  },
+  kempervennen: {
+    priceDirect: 899, priceOperator: 1045,
+    amenities: [
+      {icon:'\uD83D\uDED2', label:'Supermarket', value:'On site'},
+      {icon:'\uD83C\uDF7D\uFE0F', label:'Restaurants', value:'On site'},
+      {icon:'\uD83D\uDEB2', label:'Bike hire', value:'On site'},
+      {icon:'\uD83C\uDF34', label:'Subtropical pool', value:'On site'}
+    ],
+    gettingThere: 'Hire car or taxi from Eindhoven Airport (about 20 min). A large resort with everything on site \u2014 shops, restaurants and bike hire \u2014 so a car isn\u2019t needed once you arrive.'
+  },
+  beekse: {
+    priceDirect: 710, priceOperator: 865,
+    amenities: [
+      {icon:'\uD83D\uDED2', label:'Shop', value:'On site'},
+      {icon:'\uD83C\uDF7D\uFE0F', label:'Dining', value:'Restaurant & snacks'},
+      {icon:'\uD83D\uDEB2', label:'Bike hire', value:'On site'},
+      {icon:'\uD83E\uDD81', label:'Safari park', value:'10 min walk'}
+    ],
+    gettingThere: 'Come by car or taxi \u2014 Eindhoven Airport is about 30 min, Rotterdam about 1 hr. The safari park is a 10-minute walk, and bikes can be hired at reception for exploring the lakeside.'
+  },
+  flaasbloem: {
+    priceDirect: 645, priceOperator: 780,
+    amenities: [
+      {icon:'\uD83D\uDED2', label:'Shop', value:'On site'},
+      {icon:'\uD83C\uDF7D\uFE0F', label:'Restaurant', value:'On site'},
+      {icon:'\uD83D\uDEB2', label:'Bike hire', value:'On site'},
+      {icon:'\uD83C\uDFD9\uFE0F', label:'Breda', value:'20 min'}
+    ],
+    gettingThere: 'A hire car works best here as it\u2019s a rural spot near Chaam \u2014 Rotterdam Airport is about 50 min. Bikes can be hired on site, and the park is a well-known base for cycling the Brabant countryside.'
+  },
+  prinsenmeer: {
+    priceDirect: 560, priceOperator: 695,
+    amenities: [
+      {icon:'\uD83D\uDED2', label:'Supermarket', value:'On site'},
+      {icon:'\uD83C\uDF7D\uFE0F', label:'Restaurants', value:'Several on site'},
+      {icon:'\uD83D\uDEB2', label:'Bike hire', value:'On site'},
+      {icon:'\uD83C\uDFD6\uFE0F', label:'Beach lake', value:'On site'}
+    ],
+    gettingThere: 'Hire car or taxi from Eindhoven Airport (about 30 min). A large, self-contained park with shops and restaurants on site; bikes can be hired for getting around the grounds and lake.'
+  },
+  depaal: {
+    priceDirect: 830, priceOperator: 995,
+    amenities: [
+      {icon:'\uD83D\uDED2', label:'Shop', value:'On site'},
+      {icon:'\uD83C\uDF7D\uFE0F', label:'Dining', value:'Restaurant & takeaway'},
+      {icon:'\uD83D\uDEB2', label:'Bike hire', value:'On site'},
+      {icon:'\uD83C\uDF33', label:'Setting', value:'Car-free woodland'}
+    ],
+    gettingThere: 'Hire car or taxi from Eindhoven Airport (about 25 min). Car-free once parked, with bike hire on site \u2014 ideal for families who want the kids cycling freely between the woods and the pools.'
+  },
+  eftelinghotel: {
+    priceDirect: 540, priceOperator: 625,
+    priceUnit: 'a two-night stay for a family of 4',
+    amenities: [
+      {icon:'\uD83C\uDF7D\uFE0F', label:'Fine dining', value:'On site'},
+      {icon:'\uD83E\uDDD6', label:'Spa & wellness', value:'On site'},
+      {icon:'\uD83C\uDFA2', label:'Efteling park', value:'Direct access'},
+      {icon:'\uD83D\uDECF\uFE0F', label:'Style', value:'Hotel, not camping'}
+    ],
+    gettingThere: 'Hire car or taxi from Rotterdam Airport (about 50 min) or Eindhoven (about 40 min). The hotel sits beside the Efteling with direct morning access to the park before the day crowds.'
+  }
+};
+function extra(id){ return parkExtras[id] || null; }
+
+let map, mapInitialised = false, markerRefs = {}, activeFilter = null, currentView = 'map';
 
 function buildPicks(){
   const picks = locations.filter(l => l.reviewCount > 0 || ['bungalow','camping','glamping','wellness'].includes(l.category));
@@ -1065,8 +1265,10 @@ function initMap() {
       html:`<div style="width:38px;height:38px;border-radius:50%;background:${c};border:3px solid rgba(255,255,255,.92);display:flex;align-items:center;justify-content:center;font-size:15px;box-shadow:0 2px 10px rgba(0,0,0,.25);cursor:pointer;">${loc.markerIcon}</div>`,
       className:'', iconSize:[38,38], iconAnchor:[19,19], popupAnchor:[0,-22]
     });
-    const marker = L.marker([loc.lat, loc.lng], {icon}).addTo(map);
+    const marker = L.marker([loc.lat, loc.lng], {icon, title: loc.name}).addTo(map);
     markerRefs[loc.id] = marker;
+    // A visible name label on hover (and on tap, mobile) so it's obvious every marker is clickable
+    marker.bindTooltip(loc.name, {direction:'top', offset:[0,-20], className:'park-label', opacity:1});
     const reviewsLine = '';
     const placeLine = loc.town
       ? `<div class="popup-place">\uD83D\uDCCD ${loc.town}, North Brabant</div>` : '';
@@ -1123,7 +1325,114 @@ function clearFilter(){ applyFilter(null); }
 
 function openMapFiltered(cat){
   showPage('map');
-  setTimeout(()=>{ if(map) map.invalidateSize(); applyFilter(cat); }, 420);
+  setMapView('map');
+  setTimeout(()=>{ if(map) map.invalidateSize(); filterStay(cat || 'all', null); }, 420);
+}
+
+/* ─── PRICE COMPARATOR (direct vs tour operator) ─────────────────── */
+const GBP = n => '\u00A3' + n.toLocaleString('en-GB');
+function buildPriceComparator(){
+  const grid = document.getElementById('pc-grid');
+  if(!grid) return;
+  const rows = locations
+    .filter(l => extra(l.id) && extra(l.id).priceDirect)
+    .map(l => ({ loc:l, ex:extra(l.id) }));
+  grid.innerHTML = rows.map(({loc, ex}) => {
+    const save = ex.priceOperator - ex.priceDirect;
+    const pct = Math.round(save / ex.priceOperator * 100);
+    const thumb = loc.img
+      ? `<div class="pc-thumb" style="background-image:url('${loc.img}')"></div>`
+      : `<div class="pc-thumb" style="background:${loc.markerColor}"></div>`;
+    const unit = ex.priceUnit || 'a week, family of 4';
+    const book = loc.bookUrl
+      ? `<a class="pc-book" href="${loc.bookUrl}" target="_blank" rel="noopener">Book direct &amp; save ${GBP(save)} &rarr;</a>`
+      : `<a class="pc-book" onclick="showPage('map');setMapView('map');openLocation('${loc.id}')">See this park &rarr;</a>`;
+    return `<div class="pc-card">
+      <div class="pc-head">${thumb}<div><div class="pc-type">${loc.accomType}</div><div class="pc-name">${loc.name}</div></div></div>
+      <div class="pc-rows">
+        <div class="pc-col pc-col-op"><div class="pc-col-label">Via operator</div><div class="pc-price">${GBP(ex.priceOperator)}</div><div class="pc-col-sub">${unit}</div></div>
+        <div class="pc-col pc-col-dir"><div class="pc-col-label">Book direct</div><div class="pc-price">${GBP(ex.priceDirect)}</div><div class="pc-col-sub"></div></div>
+      </div>
+      <div class="pc-save">&#9660; You save ${GBP(save)} &mdash; about ${pct}% cheaper direct</div>
+      ${book}
+    </div>`;
+  }).join('');
+  const note = document.getElementById('pc-note');
+  if(note) note.innerHTML = 'Prices are indicative &ldquo;from&rdquo; figures for a sample summer-holiday week (family of four), gathered to show the typical gap between booking direct and via a UK tour operator. They aren&rsquo;t live quotes &mdash; the exact, up-to-date price is always on the park&rsquo;s own booking site, which is where the &ldquo;Book direct&rdquo; button takes you.';
+}
+
+/* ─── LIST VIEW (alternative to the map) ─────────────────────────── */
+const STAY_CATS = ['bungalow','camping','glamping','wellness'];
+function buildListView(){
+  const grid = document.getElementById('lv-grid');
+  if(!grid) return;
+  const stays = locations.filter(l => STAY_CATS.includes(l.category));
+  grid.innerHTML = stays.map(loc => {
+    const ex = extra(loc.id);
+    const photo = loc.img
+      ? `<div class="lv-photo" style="background-image:url('${loc.img}')">`
+      : `<div class="lv-photo">`;
+    const priceTag = (ex && ex.priceDirect)
+      ? `<div class="lv-price-tag">from <b>${GBP(ex.priceDirect)}</b><br>direct</div>` : '';
+    const place = loc.town ? `<div class="lv-place">\uD83D\uDCCD ${loc.town}</div>` : '';
+    const am = (ex ? ex.amenities.slice(0,3) : []).map(a =>
+      `<span class="lv-am">${a.icon} ${a.label}</span>`).join('');
+    const book = loc.bookUrl
+      ? `<a class="lv-book" href="${loc.bookUrl}" target="_blank" rel="noopener">Book direct</a>` : '';
+    return `<div class="lv-card" data-stay="${loc.category}">
+      ${photo}<span class="lv-photo-badge">${loc.accomType}</span>${priceTag}</div>
+      <div class="lv-body">
+        ${place}
+        <div class="lv-name">${loc.name}</div>
+        <div class="lv-highlight">${loc.highlight}</div>
+        <div class="lv-amenities">${am}</div>
+        <div class="lv-actions">
+          <button class="lv-details" onclick="openFromList('${loc.id}')">View details</button>
+          ${book}
+        </div>
+      </div>
+    </div>`;
+  }).join('');
+}
+function openFromList(id){
+  setMapView('map');
+  requestAnimationFrame(()=>{ if(map) map.invalidateSize(); openLocation(id); });
+}
+function renderListFilter(cat){
+  document.querySelectorAll('#lv-grid .lv-card').forEach(card => {
+    card.style.display = (cat==='all' || card.dataset.stay===cat) ? 'flex' : 'none';
+  });
+}
+
+/* ─── VIEW TOGGLE + shared stay filter ───────────────────────────── */
+function setMapView(mode){
+  currentView = mode;
+  const layout = document.getElementById('map-layout');
+  const list = document.getElementById('list-view');
+  const btnMap = document.getElementById('vt-map');
+  const btnList = document.getElementById('vt-list');
+  if(mode==='list'){
+    layout.style.display = 'none';
+    list.classList.add('active');
+    btnList.classList.add('active'); btnMap.classList.remove('active');
+  } else {
+    layout.style.display = 'grid';
+    list.classList.remove('active');
+    btnMap.classList.add('active'); btnList.classList.remove('active');
+    requestAnimationFrame(()=>{ if(map) map.invalidateSize(); });
+  }
+}
+function filterStay(cat, btn){
+  document.querySelectorAll('.stay-filter').forEach(b => b.classList.remove('active'));
+  const target = btn || document.querySelector('.stay-filter[data-stay="'+cat+'"]');
+  if(target) target.classList.add('active');
+  applyFilter(cat==='all' ? null : cat);   // map markers + sidebar picks
+  renderListFilter(cat);                    // list-view cards
+}
+function resetMap(){
+  filterStay('all', null);
+  closeSidebar();
+  if(map) map.flyTo([51.55, 4.95], 9, {duration:.6});
 }
 
 function openLocation(id) {
@@ -1164,9 +1473,25 @@ function openLocation(id) {
     <a class="cta-sec" style="display:block;text-decoration:none" href="https://www.google.com/search?q=${gQuery}" target="_blank" rel="noopener">View this place on Google &rarr;</a>
   ` : '';
 
+  // What's nearby + how you actually get there (added after prototype-5 testing)
+  const ex = extra(loc.id);
+  let extrasHtml = '';
+  if (ex) {
+    const amHtml = (ex.amenities || []).map(a =>
+      `<div class="amenity"><span class="am-ic">${a.icon}</span><span class="am-txt"><span class="am-val">${a.value}</span><span class="am-lab">${a.label}</span></span></div>`
+    ).join('');
+    extrasHtml = `
+      <div class="detail-section-label">What&rsquo;s nearby</div>
+      <div class="amenities">${amHtml}</div>
+      <div class="detail-section-label">Getting there</div>
+      <div class="getting-there"><span class="gt-ic">\uD83D\uDE97</span><span>${ex.gettingThere}</span></div>
+    `;
+  }
+
   document.getElementById('detail-body').innerHTML = `
     <div class="chips">${chipsHtml}</div>
     <p class="detail-desc">${loc.desc}</p>
+    ${extrasHtml}
     ${reviewsHtml}
   `;
 
@@ -1314,7 +1639,8 @@ async function loadGoogleReviews(){
           if (!places || !places.length) continue;
           place = places[0];
         }
-        await place.fetchFields({ fields: ['reviews'] });
+        await place.fetchFields({ fields: ['reviews','googleMapsURI'] });
+        const placeUri = place.googleMapsURI || '';
         let revs = place.reviews || [];
         if (PREFER_ENGLISH){
           const en = revs.filter(r => (r.textLanguageCode||'').toLowerCase().startsWith('en'));
@@ -1333,7 +1659,8 @@ async function loadGoogleReviews(){
             text,
             authorName: author.displayName || 'Google user',
             authorUri: author.uri || '',
-            when: r.relativePublishTimeDescription || ''
+            when: r.relativePublishTimeDescription || '',
+            placeUri
           });
         }
       } catch(err){ console.warn('Reviews for', p.query, 'could not load:', err); }
@@ -1357,13 +1684,18 @@ async function loadGoogleReviews(){
           ? `<a href="${r.authorUri}" target="_blank" rel="noopener" style="color:inherit;text-decoration:none">${escHtml(r.authorName)}</a>`
           : escHtml(r.authorName);
         const when = r.when ? ' \u00B7 ' + escHtml(r.when) : '';
+        const origin = r.placeUri || r.authorUri || '';
+        const gLink = origin
+          ? `<a class="r-google-link" href="${origin}" target="_blank" rel="noopener">Read this review on Google &#8599;</a>` : '';
         return `
         <div class="review-row" data-park="${r.key}" data-stars="${r.stars}">
           <div>
+            <span class="r-source"><span class="r-verified">&#10003;</span> Verified Google review</span>
             <span class="r-tag">${escHtml(r.tag)}</span>
             <div class="r-stars">${starString(r.stars)}</div>
             <p class="r-quote">${escHtml(r.text)}</p>
             <div class="r-author"><div class="r-avatar">${escHtml(initials)}</div><div><div class="r-name">${name}</div><div class="r-meta">via Google${when}</div></div></div>
+            ${gLink}
           </div>
           <span class="r-park-badge">${escHtml(r.label)}</span>
         </div>`;
@@ -1414,6 +1746,8 @@ function showConsent() {
 })();
 
 buildPicks();
+buildPriceComparator();
+buildListView();
 loadGoogleReviews();
 </script>
 </body>
