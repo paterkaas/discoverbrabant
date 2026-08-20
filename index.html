@@ -494,6 +494,136 @@
       .consent-actions{width:100%}
       .consent-btn{flex:1;text-align:center}
     }
+  
+/* ─────────────────────────────────────────────────────────────
+   PROTOTYPE 6 — comparison-first homepage
+   Appended last on purpose: these rules override the earlier
+   nav rules (including the ones inside the 780px media query).
+   ───────────────────────────────────────────────────────────── */
+
+/* NAV — hamburger at every width */
+.nav-right{display:flex;align-items:center;gap:1rem;margin-left:auto}
+.nav-tag{font-family:'DM Sans',sans-serif;font-size:.72rem;letter-spacing:.04em;color:rgba(246,240,228,.55)}
+.nav-toggle{display:flex;align-items:center;gap:.5rem;background:none;border:1px solid rgba(246,240,228,.28);color:var(--cream);font-family:'DM Sans',sans-serif;font-size:.76rem;font-weight:500;letter-spacing:.09em;text-transform:uppercase;line-height:1;cursor:pointer;padding:.55rem .85rem;transition:border-color .15s,background .15s}
+.nav-toggle:hover{border-color:var(--gold);background:rgba(201,153,63,.12)}
+.nav-toggle .nav-burger{font-size:1rem}
+nav.nav-open .nav-toggle{border-color:var(--gold);color:var(--gold)}
+.nav-links{position:absolute;top:60px;right:0;width:min(320px,100%);flex-direction:column;gap:0;background:var(--green);display:none;list-style:none;box-shadow:0 14px 32px rgba(0,0,0,.32);border-top:1px solid rgba(246,240,228,.1)}
+nav.nav-open .nav-links{display:flex}
+.nav-links li{width:100%}
+.nav-links li a{display:block;padding:1rem 1.3rem;font-size:.82rem;border-bottom:1px solid rgba(246,240,228,.07)}
+@media(max-width:620px){
+  .nav-tag{display:none}
+  .nav-links{width:100%}
+}
+
+/* HERO */
+.cmp-hero{background:var(--green);color:var(--cream);padding:3.4rem 5% 2.6rem;position:relative;overflow:hidden}
+.cmp-hero::after{content:'';position:absolute;inset:0;background-image:url('images/terspegelt.jpg');background-size:cover;background-position:center 45%;opacity:.13;pointer-events:none}
+.cmp-hero-inner{position:relative;z-index:2;max-width:1180px;margin:0 auto}
+.cmp-eyebrow{font-family:'DM Sans',sans-serif;font-size:.72rem;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:.85rem;display:flex;align-items:center;gap:.5rem}
+.cmp-eyebrow::before{content:'';display:inline-block;width:22px;height:1px;background:var(--gold)}
+.cmp-title{font-family:'DM Serif Display',serif;font-size:clamp(2.1rem,4.6vw,3.5rem);line-height:1.08;color:var(--cream);margin-bottom:.9rem}
+.cmp-title em{font-style:italic;color:var(--gold)}
+.cmp-sub{font-family:'DM Sans',sans-serif;font-size:.94rem;line-height:1.75;color:rgba(246,240,228,.8);max-width:640px;margin-bottom:2.1rem}
+.cmp-controls{display:flex;flex-wrap:wrap;gap:1.8rem 3rem}
+.cmp-control{display:flex;flex-direction:column;gap:.55rem}
+.cmp-control-label{font-family:'DM Sans',sans-serif;font-size:.66rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:rgba(246,240,228,.45)}
+.cmp-tabs{display:flex;flex-wrap:wrap;gap:.4rem}
+.cmp-tab{font-family:'DM Sans',sans-serif;font-size:.8rem;font-weight:500;padding:.5rem 1rem;background:rgba(255,255,255,.06);border:1px solid rgba(246,240,228,.18);color:rgba(246,240,228,.8);cursor:pointer;transition:all .15s}
+.cmp-tab:hover{border-color:var(--gold);color:var(--cream)}
+.cmp-tab.active{background:var(--gold);border-color:var(--gold);color:#22190a;font-weight:600}
+.cmp-tab:disabled{opacity:.35;cursor:not-allowed;border-style:dashed}
+.cmp-tab:disabled:hover{border-color:rgba(246,240,228,.18);color:rgba(246,240,228,.8)}
+.cmp-basis{font-family:'DM Sans',sans-serif;font-size:.79rem;color:rgba(246,240,228,.62);margin-top:1.6rem;display:flex;flex-wrap:wrap;gap:.4rem 1.2rem}
+.cmp-basis span{display:flex;align-items:center;gap:.35rem}
+.cmp-basis b{color:var(--cream);font-weight:600}
+
+/* BOARD */
+.cmp-board-wrap{background:var(--cream);padding:0 5% 3.6rem}
+.cmp-board{display:grid;grid-template-columns:1fr 1fr;gap:1.1rem;max-width:1180px;margin:0 auto;transform:translateY(-1.6rem)}
+.cmp-col{background:var(--white);border:1px solid var(--warm);display:flex;flex-direction:column;box-shadow:0 6px 26px rgba(36,61,53,.08)}
+.cmp-col-direct{border-top:4px solid var(--green)}
+.cmp-col-op{border-top:4px solid var(--muted)}
+.cmp-col-head{padding:1.3rem 1.5rem 1.1rem;border-bottom:1px solid var(--warm);position:relative}
+.cmp-route{font-family:'DM Sans',sans-serif;font-size:.66rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);margin-bottom:.4rem}
+.cmp-col-direct .cmp-route{color:var(--green2)}
+.cmp-col-name{font-family:'DM Serif Display',serif;font-size:1.35rem;color:var(--ink);line-height:1.15}
+.cmp-col-line{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--muted);margin-top:.35rem;line-height:1.6}
+.cmp-flag-op{background:var(--muted)}
+.cmp-flag{position:absolute;top:1.3rem;right:1.5rem;font-family:'DM Sans',sans-serif;font-size:.64rem;font-weight:700;letter-spacing:.09em;text-transform:uppercase;background:var(--green);color:var(--cream);padding:.28rem .6rem}
+.cmp-units{padding:.4rem 1.5rem 1rem;flex:1}
+.cmp-unit{display:grid;grid-template-columns:56px 1fr auto;gap:.9rem;align-items:start;padding:1.05rem 0;border-bottom:1px solid var(--warm)}
+.cmp-unit:last-child{border-bottom:none}
+.cmp-unit-thumb{width:56px;height:56px;background-size:cover;background-position:center;background-color:var(--warm);border-radius:2px}
+.cmp-unit-name{font-family:'DM Sans',sans-serif;font-weight:600;font-size:.88rem;color:var(--ink);line-height:1.3}
+.cmp-unit-meta{font-family:'DM Sans',sans-serif;font-size:.72rem;color:var(--muted);margin-top:.14rem}
+.cmp-unit-desc{font-family:'DM Sans',sans-serif;font-size:.76rem;line-height:1.6;color:var(--muted);margin-top:.4rem}
+.cmp-unit-badge{display:inline-block;font-family:'DM Sans',sans-serif;font-size:.63rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;padding:.2rem .45rem;margin-top:.5rem;background:rgba(201,153,63,.18);color:#8a6420}
+.cmp-unit-badge.only{background:rgba(46,110,78,.14);color:var(--green2)}
+.cmp-unit-price{font-family:'DM Serif Display',serif;font-size:1.3rem;color:var(--green);white-space:nowrap;text-align:right;line-height:1.1}
+.cmp-col-op .cmp-unit-price{color:var(--ink)}
+.cmp-unit-per{display:block;font-family:'DM Sans',sans-serif;font-size:.63rem;color:var(--muted);letter-spacing:.03em;margin-top:.2rem}
+
+/* review signal inside the operator column */
+.cmp-reviews{padding:0 1.5rem 1.1rem}
+.cmp-rating{display:flex;align-items:center;gap:.55rem;padding:.75rem 0 .6rem;border-top:1px solid var(--warm)}
+.cmp-rating-score{font-family:'DM Serif Display',serif;font-size:1.15rem;color:var(--ink);line-height:1}
+.cmp-rating-stars{color:var(--gold);font-size:.8rem;letter-spacing:.05em}
+.cmp-rating-count{font-family:'DM Sans',sans-serif;font-size:.71rem;color:var(--muted)}
+.cmp-quote{border-left:3px solid var(--warm);padding-left:.75rem;margin-top:.55rem}
+.cmp-quote p{font-family:'Lora',serif;font-style:italic;font-size:.79rem;line-height:1.6;color:var(--ink)}
+.cmp-quote span{font-family:'DM Sans',sans-serif;font-size:.68rem;color:var(--muted);display:block;margin-top:.2rem}
+.cmp-reviews-link{font-family:'DM Sans',sans-serif;font-size:.72rem;color:var(--green2);background:none;border:none;padding:0;margin-top:.7rem;cursor:pointer;text-decoration:underline}
+.cmp-reviews-link:hover{color:var(--terra)}
+
+.cmp-foot{padding:1.1rem 1.5rem 1.4rem;border-top:1px solid var(--warm);background:var(--cream)}
+.cmp-total{display:flex;align-items:baseline;justify-content:space-between;gap:1rem;margin-bottom:.85rem}
+.cmp-total-label{font-family:'DM Sans',sans-serif;font-size:.73rem;color:var(--muted);line-height:1.4}
+.cmp-total-price{font-family:'DM Serif Display',serif;font-size:1.9rem;color:var(--ink);line-height:1}
+.cmp-col-direct .cmp-total-price{color:var(--green)}
+.cmp-cta{display:block;width:100%;padding:.85rem;font-family:'DM Sans',sans-serif;font-size:.83rem;font-weight:600;letter-spacing:.03em;text-align:center;text-decoration:none;cursor:pointer;border:none;transition:background .15s,border-color .15s}
+.cmp-cta-primary{background:var(--terra);color:var(--white)}
+.cmp-cta-primary:hover{background:#a84d22}
+.cmp-cta-sec{background:transparent;color:var(--green);border:1.5px solid var(--green)}
+.cmp-cta-sec:hover{background:var(--green);color:var(--cream)}
+.cmp-cta-note{font-family:'DM Sans',sans-serif;font-size:.66rem;color:var(--muted);text-align:center;margin-top:.5rem}
+
+.cmp-verdict{max-width:1180px;margin:0 auto;background:var(--green);color:var(--cream);padding:1.3rem 1.6rem;display:flex;flex-wrap:wrap;align-items:center;gap:.6rem 1.4rem;transform:translateY(-1.6rem)}
+.cmp-verdict-num{font-family:'DM Serif Display',serif;font-size:1.9rem;color:var(--gold);line-height:1}
+.cmp-verdict-text{font-family:'DM Sans',sans-serif;font-size:.86rem;line-height:1.6;color:rgba(246,240,228,.85);flex:1;min-width:240px}
+.cmp-verdict-text b{color:var(--cream)}
+.cmp-disclaimer{max-width:1180px;margin:0 auto;font-family:'DM Sans',sans-serif;font-size:.74rem;line-height:1.7;color:var(--muted)}
+.cmp-unchecked{display:inline-block;font-family:'DM Sans',sans-serif;font-size:.66rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;background:#fdf0ea;color:var(--terra);border:1px solid rgba(192,92,42,.35);padding:.25rem .55rem;margin-bottom:.6rem}
+
+/* WHY THE SIDES DIFFER */
+.only-strip{padding:3.4rem 5%;background:var(--white)}
+.only-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1.1rem;margin-top:1.6rem}
+.only-card{background:var(--cream);border-left:3px solid var(--gold);padding:1.4rem 1.5rem}
+.only-card h4{font-family:'DM Sans',sans-serif;font-weight:600;font-size:.88rem;color:var(--green);margin-bottom:.45rem;line-height:1.4}
+.only-card p{font-family:'DM Sans',sans-serif;font-size:.8rem;line-height:1.7;color:var(--muted)}
+
+/* QUIET MAP ENTRY */
+.explore-strip{padding:2.8rem 5%;background:var(--cream);display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:1.4rem}
+.explore-strip .strip-sub{margin-bottom:0}
+.btn-ghost-dark{display:inline-flex;align-items:center;gap:.6rem;background:transparent;color:var(--green);font-family:'DM Sans',sans-serif;font-size:.86rem;font-weight:500;padding:.8rem 1.7rem;border:1.5px solid var(--green);cursor:pointer;transition:all .15s}
+.btn-ghost-dark:hover{background:var(--green);color:var(--cream)}
+
+@media(max-width:860px){
+  .cmp-board{grid-template-columns:1fr;transform:none;margin-top:1.4rem}
+  .cmp-verdict{transform:none;margin-bottom:1.4rem}
+  .cmp-board-wrap{padding-top:.2rem}
+}
+@media(max-width:520px){
+  .cmp-unit{grid-template-columns:44px 1fr;gap:.7rem}
+  .cmp-unit-thumb{width:44px;height:44px}
+  .cmp-unit-price{grid-column:2;text-align:left;font-size:1.15rem}
+}
+@media(prefers-reduced-motion:reduce){
+  *{animation-duration:.01ms !important;transition-duration:.01ms !important}
+  html{scroll-behavior:auto}
+}
+
   </style>
 </head>
 <body>
@@ -501,82 +631,100 @@
 <!-- NAV -->
 <nav id="mainnav">
   <div class="nav-logo" onclick="showPage('landing')">Discover<span>Brabant</span></div>
+  <div class="nav-right">
+    <span class="nav-tag">Independent price comparison &middot; we don&rsquo;t sell holidays</span>
+    <button class="nav-toggle" onclick="toggleNav()" aria-label="Open menu" aria-expanded="false"><span class="nav-burger">&#9776;</span> Menu</button>
+  </div>
   <ul class="nav-links">
-    <li><a onclick="showPage('landing')" id="nav-landing" class="active">Home</a></li>
-    <li><a onclick="showPage('map')" id="nav-map">Find a spot</a></li>
-    <li><a onclick="showPage('reviews')" id="nav-reviews">All reviews</a></li>
+    <li><a onclick="showPage('landing')" id="nav-landing" class="active">Compare prices</a></li>
+    <li><a onclick="showPage('map')" id="nav-map">Find a spot on the map</a></li>
+    <li><a onclick="showPage('reviews')" id="nav-reviews">Guest reviews</a></li>
     <li><a onclick="showPage('info')" id="nav-info">Travel information</a></li>
   </ul>
-  <div class="trust-pill" onclick="showPage('reviews')">&#9733; &nbsp; Real guest reviews &mdash; read them</div>
-  <button class="nav-toggle" onclick="toggleNav()" aria-label="Open menu">&#9776;</button>
 </nav>
 
 
-<!-- ══════ LANDING PAGE ══════ -->
+<!-- ══════ LANDING PAGE — PRICE COMPARISON ══════ -->
 <div class="page active" id="page-landing">
   <div class="landing">
 
-    <!-- Hero -->
-    <div class="landing-hero">
-      <div class="landing-photo"></div>
-      <div class="landing-content">
-        <div class="landing-eyebrow">North Brabant, The Netherlands</div>
-        <h1 class="landing-title">Family holidays<br><em>worth the journey</em></h1>
-        <p class="landing-sub">Real reviews from British families, an interactive map showing travel times from the UK, and everything you need to book with confidence.</p>
-        <div class="landing-audience">Made for British families with children aged 4&ndash;14 &mdash; though everyone is welcome</div>
-        <div class="landing-btns">
-          <button class="btn-primary" onclick="showPage('map')">Find a holiday spot &rsaquo;</button>
-          <button class="btn-ghost" onclick="showPage('reviews')">Read reviews</button>
+    <!-- Hero: the comparison question itself -->
+    <section class="cmp-hero">
+      <div class="cmp-hero-inner">
+        <div class="cmp-eyebrow">North Brabant, The Netherlands</div>
+        <h1 class="cmp-title">The same park.<br><em>Two ways to book.</em></h1>
+        <p class="cmp-sub">Most British families book North Brabant through a UK tour operator and never see the second option: the park sells the same weeks itself, plus lodges no operator lists. Sometimes that&rsquo;s cheaper, sometimes it isn&rsquo;t. Here are both, week by week.</p>
+
+        <div class="cmp-controls">
+          <div class="cmp-control">
+            <span class="cmp-control-label">Park</span>
+            <div class="cmp-tabs" id="cmp-park-tabs"></div>
+          </div>
+          <div class="cmp-control">
+            <span class="cmp-control-label">When you&rsquo;d travel</span>
+            <div class="cmp-tabs" id="cmp-period-tabs"></div>
+          </div>
         </div>
-        <div class="landing-stats">
-          <div class="l-stat"><span class="l-stat-num">7</span><span class="l-stat-label">Holiday parks compared</span></div>
-          <div class="l-stat"><span class="l-stat-num">16</span><span class="l-stat-label">Places on the map</span></div>
+        <div class="cmp-basis" id="cmp-basis"></div>
+      </div>
+    </section>
+
+    <!-- The board: direct vs operator -->
+    <section class="cmp-board-wrap">
+      <div class="cmp-board" id="cmp-board"></div>
+      <div class="cmp-verdict" id="cmp-verdict"></div>
+      <p class="cmp-disclaimer" id="cmp-disclaimer"></p>
+    </section>
+
+    <!-- What only exists on the direct side -->
+    <section class="only-strip">
+      <div class="strip-label">Worth knowing</div>
+      <h2 class="strip-title">What each route is good at</h2>
+      <p class="strip-sub">An operator buys a block of chalets and adds its own service on top. The park&rsquo;s own site opens up everything else it owns. Neither is the right answer for every family, or every week.</p>
+      <div class="only-grid">
+        <div class="only-card">
+          <h4>Direct: more to choose from</h4>
+          <p>Waterside lodges, themed cabins and the park&rsquo;s newest units are usually kept for direct bookings, and the simpler older lodges sit below the operator&rsquo;s entry price. If you want a specific view or the cheapest roof on the park, that choice only exists here.</p>
+        </div>
+        <div class="only-card">
+          <h4>Operator: less to arrange</h4>
+          <p>A UK phone line in your own time zone, British-standard bedding, a courier on the park and ferry-and-accommodation in one booking. The chalets are comfortable and well kept &mdash; for a first trip abroad with small children, that package is worth real money.</p>
+        </div>
+        <div class="only-card">
+          <h4>Neither wins every week</h4>
+          <p>In school holidays the park is usually cheaper, because there&rsquo;s no commission on top. Out of season the operator often discounts hard to fill its allocation and comes in under the park&rsquo;s own rate. Switch the weeks above and you&rsquo;ll see it flip.</p>
         </div>
       </div>
-    </div>
+    </section>
 
-    <!-- How it works -->
-    <div class="how-strip">
+    <!-- How to use this -->
+    <section class="how-strip">
       <div class="how-item">
         <span class="how-num">1</span>
-        <div class="how-title">Choose your type of stay</div>
-        <div class="how-desc">Bungalow park, family camping, glamping or a relaxing spa break &mdash; filter the map by what suits your family.</div>
+        <div class="how-title">Compare the same week</div>
+        <div class="how-desc">Pick a park and a travel period above. Both columns show the same dates and the same size of family.</div>
       </div>
       <div class="how-item">
         <span class="how-num">2</span>
-        <div class="how-title">See how to get there</div>
-        <div class="how-desc">Click any place to see travel times from your nearest UK airport, ferry port or the Channel Tunnel.</div>
+        <div class="how-title">Decide what you&rsquo;re paying for</div>
+        <div class="how-desc">A lower price, a nicer lodge, or a booking handled in English from the UK. All three are reasonable answers, and the cheapest one changes with the week.</div>
       </div>
       <div class="how-item">
         <span class="how-num">3</span>
-        <div class="how-title">Read British reviews</div>
-        <div class="how-desc">Every review is written in English by British families who have already made the trip.</div>
+        <div class="how-title">Book on the site you chose</div>
+        <div class="how-desc">Both buttons go straight to the booking page. We don&rsquo;t take bookings and never hold your details.</div>
       </div>
-      <div class="how-item">
-        <span class="how-num">4</span>
-        <div class="how-title">Book directly</div>
-        <div class="how-desc">Click through to the park website and book. No account needed on this platform.</div>
-      </div>
-    </div>
-
-    <!-- Price comparison: direct vs tour operator -->
-    <div class="price-strip" id="price-compare">
-      <div class="strip-label">The question every family asks first</div>
-      <h2 class="strip-title">What does it cost &mdash; and where&rsquo;s it cheapest?</h2>
-      <p class="strip-sub">The same park, the same week &mdash; booked directly with the park versus through a UK tour operator. Booking direct is almost always cheaper, because there&rsquo;s no operator commission on top.</p>
-      <div class="pc-grid" id="pc-grid"></div>
-      <p class="pc-note" id="pc-note"></p>
-    </div>
+    </section>
 
     <!-- Why Brabant -->
-    <div class="why-strip">
+    <section class="why-strip">
       <div class="strip-label">Why this region</div>
       <h2 class="strip-title">Why Brabant?</h2>
       <p class="strip-sub">The Netherlands is more than Amsterdam. North Brabant sits in the relaxed south &mdash; close to the borders, the airports and the ferry ports, yet far from the city crowds.</p>
       <div class="why-grid">
         <div class="why-card">
           <span class="why-icon">&#9992;&#65039;</span>
-          <h4>Airports & ferries close by</h4>
+          <h4>Airports &amp; ferries close by</h4>
           <p>Rotterdam and Eindhoven airports are 30&ndash;45 minutes away, and the Hook of Holland ferry is a relaxed two-hour drive. You arrive quickly &mdash; whichever way you travel.</p>
         </div>
         <div class="why-card">
@@ -595,95 +743,17 @@
           <p>Eindhoven is an international tech city and the whole region is highly multilingual. Almost everyone speaks excellent English.</p>
         </div>
       </div>
-    </div>
+    </section>
 
-    <!-- Accommodation types -->
-    <div class="accom-strip">
-      <div class="strip-label">What kind of holiday are you looking for?</div>
-      <h2 class="strip-title">Find the right fit for your family</h2>
-      <p class="strip-sub">North Brabant is not only forests and tents. From large holiday parks with heated pools to spa hotels and glamping, click a type to open the map filtered for you.</p>
-      <div class="accom-grid">
-        <div class="accom-card" onclick="openMapFiltered('bungalow')">
-          <div class="accom-photo" style="background-image:url('images/terspegelt.jpg')">
-            <span class="accom-icon">&#127969;</span>
-          </div>
-          <div class="accom-text">
-            <div class="accom-name">Bungalow park</div>
-            <div class="accom-desc">Self-catering bungalows with everything on site &mdash; heated pools, restaurants and entertainment. No tent required.</div>
-            <div class="accom-go">See bungalow parks &rarr;</div>
-          </div>
-        </div>
-        <div class="accom-card" onclick="openMapFiltered('camping')">
-          <div class="accom-photo" style="background-image:url('images/beeksebergen.jpg')">
-            <span class="accom-icon">&#9978;</span>
-          </div>
-          <div class="accom-text">
-            <div class="accom-name">Family camping &amp; nature</div>
-            <div class="accom-desc">Bring your own tent or caravan. Large pitches, car-free zones, and resorts right next to the Beekse Bergen safari park.</div>
-            <div class="accom-go">See campsites &rarr;</div>
-          </div>
-        </div>
-        <div class="accom-card" onclick="openMapFiltered('glamping')">
-          <div class="accom-photo" style="background-image:url('images/depaal.jpg')">
-            <span class="accom-icon">&#127807;</span>
-          </div>
-          <div class="accom-text">
-            <div class="accom-name">Glamping</div>
-            <div class="accom-desc">Safari tents, treehouses and lodges. The outdoors without the faff &mdash; increasingly popular with British families.</div>
-            <div class="accom-go">See glamping sites &rarr;</div>
-          </div>
-        </div>
-        <div class="accom-card" onclick="openMapFiltered('wellness')">
-          <div class="accom-photo" style="background-image:url('images/efteling.jpg')">
-            <span class="accom-icon">&#129494;</span>
-          </div>
-          <div class="accom-text">
-            <div class="accom-name">Wellness &amp; spa hotels</div>
-            <div class="accom-desc">Not everyone wants a tent. Comfortable hotels and spa resorts &mdash; including the Efteling&rsquo;s own grand hotel.</div>
-            <div class="accom-go">See spa hotels &rarr;</div>
-          </div>
-        </div>
+    <!-- Quiet entry point to the map -->
+    <section class="explore-strip">
+      <div>
+        <div class="strip-label">Still choosing a park</div>
+        <h2 class="strip-title">See where each park actually is</h2>
+        <p class="strip-sub">Travel times from every UK airport, ferry port and the Channel Tunnel, park by park.</p>
       </div>
-    </div>
-
-    <!-- Featured reviews -->
-    <div class="landing-reviews">
-      <div class="strip-label">What British families say</div>
-      <h2 class="strip-title">Hear it from people like you</h2>
-      <p class="strip-sub">Loaded live from Google and shown in English &mdash; real reviews from recent guests.</p>
-      <div class="review-row-mini" id="featured-reviews">
-        <div class="review-mini-card"><p class="rmc-quote" style="font-style:normal;color:var(--muted)">Loading recent Google reviews&hellip;</p></div>
-      </div>
-      <div style="margin-top:1.5rem">
-        <button class="btn-primary" onclick="showPage('reviews')">Read all guest reviews &rsaquo;</button>
-      </div>
-    </div>
-
-    <!-- Video reels -->
-    <div class="video-strip">
-      <div class="strip-label">From their own holidays</div>
-      <h2 class="strip-title">See it through their eyes</h2>
-      <p class="strip-sub">Short clips shared by British families who stayed in North Brabant &mdash; the honest, unpolished look a brochure never gives you.</p>
-      <div class="video-row">
-        <button class="video-card" style="background-image:url('images/terspegelt.jpg')" onclick="reelNote()">
-          <span class="video-play">&#9654;</span>
-          <span class="video-meta"><span class="video-handle">@theleedsfamily</span><span class="video-cap">Morning to night, car-free &mdash; a day at TerSpegelt</span></span>
-        </button>
-        <button class="video-card" style="background-image:url('images/beeksebergen.jpg')" onclick="reelNote()">
-          <span class="video-play">&#9654;</span>
-          <span class="video-meta"><span class="video-handle">@bristol_adventures</span><span class="video-cap">Waking up right next to a safari park</span></span>
-        </button>
-        <button class="video-card" style="background-image:url('images/efteling.jpg')" onclick="reelNote()">
-          <span class="video-play">&#9654;</span>
-          <span class="video-meta"><span class="video-handle">@cardiff.claire</span><span class="video-cap">The Efteling before the crowds arrive</span></span>
-        </button>
-        <button class="video-card" style="background-image:url('images/depaal.jpg')" onclick="reelNote()">
-          <span class="video-play">&#9654;</span>
-          <span class="video-meta"><span class="video-handle">@nottingham.hannah</span><span class="video-cap">Glamping in the woods at De Paal</span></span>
-        </button>
-      </div>
-      <p class="video-note" id="reel-note">Short video reels from British families &mdash; a content feature planned for the live platform.</p>
-    </div>
+      <button class="btn-ghost-dark" onclick="showPage('map')">Open the map &rsaquo;</button>
+    </section>
 
   </div>
 </div>
@@ -1639,7 +1709,7 @@ async function loadGoogleReviews(){
           if (!places || !places.length) continue;
           place = places[0];
         }
-        await place.fetchFields({ fields: ['reviews','googleMapsURI'] });
+        await place.fetchFields({ fields: ['reviews','googleMapsURI','rating','userRatingCount'] });
         const placeUri = place.googleMapsURI || '';
         let revs = place.reviews || [];
         if (PREFER_ENGLISH){
@@ -1648,6 +1718,18 @@ async function loadGoogleReviews(){
         }
         if (!revs.length) continue;
         placesWithReviews.push(p);
+
+        LIVE_REVIEWS[p.key] = {
+          rating: place.rating || 0,
+          count: place.userRatingCount || 0,
+          placeUri,
+          quotes: revs.slice(0, 2).map(r => {
+            const t = (typeof r.text === 'string') ? r.text : (r.text && r.text.text) || '';
+            const a = r.authorAttribution || {};
+            return { text: escHtml(t.length > 190 ? t.slice(0, 187) + '\u2026' : t),
+                     author: escHtml(a.displayName || 'Google user') + (r.relativePublishTimeDescription ? ' \u00B7 ' + escHtml(r.relativePublishTimeDescription) : '') + ' \u00B7 via Google' };
+          })
+        };
 
         for (const r of revs){
           const text = (typeof r.text === 'string') ? r.text : (r.text && r.text.text) || '';
@@ -1702,6 +1784,7 @@ async function loadGoogleReviews(){
       }).join('');
     }
     if (attrEl) attrEl.style.display = 'block';
+    renderCompare();   // swap the fallback rating for the live Google one
 
     // Homepage featured strip: first three reviews, prefer 5-star
     if (featured){
@@ -1745,9 +1828,301 @@ function showConsent() {
   if (!choice) showConsent();
 })();
 
+
+/* ══════════════════════════════════════════════════════════════════
+   PRICE COMPARISON — homepage
+   ------------------------------------------------------------------
+   ⚠ EVERY PRICE, RATING AND REVIEW QUOTE BELOW IS A PLACEHOLDER.
+     Replace them with figures you have checked yourself, then set
+     CMP.pricesVerified = true and fill in CMP.checkedOn. Until you do,
+     the page shows an orange "sample figures" flag above the small
+     print, so nobody mistakes these for live quotes.
+
+   Rules for keeping the comparison fair (and defensible):
+     • same arrival date, same number of nights, same party size on
+       both sides;
+     • same inclusions — if the operator price includes a ferry, the
+       direct price has to say it doesn't;
+     • re-check both sides on the same day and update `checkedOn`.
+
+   To add a park: copy the terspegelt block, give it a new id, and set
+   `comingSoon:false`. Everything else (tabs, totals, the verdict bar)
+   is generated from this object.
+   ══════════════════════════════════════════════════════════════════ */
+const CMP = {
+  currency: '\u00A3',
+  pricesVerified: false,          // ← set to true once you've checked them
+  checkedOn: '',                  // ← e.g. '12 September 2026'
+  parks: [
+    {
+      id: 'terspegelt',
+      locId: 'terspegelt',                 // links to the map + reviews
+      label: 'TerSpegelt',
+      name: 'Recreatiepark TerSpegelt',
+      town: 'Eersel, North Brabant',
+      direct: {
+        brand: 'terspegelt.nl',
+        line: 'The park\u2019s own booking site. Everything it owns is bookable here \u2014 including units no operator lists.',
+        url: 'https://www.terspegelt.nl',  // ← swap in your TradeTracker link
+        /* Fallback only. When the live Google reviews load, the score,
+           the count and the quotes below are replaced by the real ones. */
+        rating: 4.5,
+        reviewCount: 1840,
+        reviewSource: 'Google reviews for the park',
+        quotes: [
+          { text: 'Car-free, immaculate pools, kids out from breakfast till dinner. The lodge by the water was the best we have stayed in.', author: 'Sarah H., Leeds \u00B7 via Google' },
+          { text: 'Booked on the park\u2019s own site in English, no trouble at all. Far more choice of accommodation than we expected.', author: 'Rachel P., Sheffield \u00B7 via Google' }
+        ]
+      },
+      operator: {
+        brand: 'Eurocamp',
+        line: 'A UK tour operator with its own chalets on this park \u2014 British bedding made up on arrival, a courier on site, a UK phone line and ferry-inclusive packages.',
+        url: 'https://www.eurocamp.co.uk',
+        rating: 4.4,
+        reviewCount: 312,
+        reviewSource: 'Eurocamp guest reviews for this park',
+        reviewUpdated: 'last updated August 2026',
+        quotes: [
+          { text: 'Chalet was spotless and the courier met us at the gate \u2014 with two under-fives that was worth a lot.', author: 'Helen M., Leeds \u00B7 July 2026' },
+          { text: 'Beds made up, everything explained in English, and the ferry booked in the same go. We\u2019d use them again without thinking about it.', author: 'Dan R., Bristol \u00B7 August 2026' }
+        ]
+      },
+      periods: [
+        {
+          id: 'may',
+          label: 'May half term',
+          dates: '23\u201330 May 2026',
+          nights: 7,
+          party: '2 adults + 2 children',
+          directUnits: [
+            { name: 'Waterlodge', sleeps: 'Sleeps 6', price: 745, badge: 'Direct only', badgeType: 'only',
+              desc: 'Lakeside lodge with its own jetty and a terrace over the water. Never appears in an operator brochure.' },
+            { name: 'Comfort bungalow', sleeps: 'Sleeps 6', price: 495, compare: true, badge: 'Like-for-like', badgeType: 'match',
+              desc: 'The closest match to the chalet an operator sells \u2014 same size, same part of the park.' },
+            { name: 'Loungelodge', sleeps: 'Sleeps 4', price: 395, badge: 'Cheapest week', badgeType: 'only',
+              desc: 'Simple, older and the best-value roof on the park. Below anything an operator offers.' }
+          ],
+          operatorUnit: { name: 'Standard 3-bedroom chalet', sleeps: 'Sleeps 6', price: 629,
+            desc: 'Eurocamp\u2019s own chalet: three bedrooms, decking, beds made up on arrival. Allocated on the day.' }
+        },
+        {
+          id: 'june',
+          label: 'Late June',
+          dates: '20\u201327 June 2026',
+          nights: 7,
+          party: '2 adults + 2 children',
+          directUnits: [
+            { name: 'Waterlodge', sleeps: 'Sleeps 6', price: 810, badge: 'Direct only', badgeType: 'only',
+              desc: 'Lakeside lodge with its own jetty and a terrace over the water. Never appears in an operator brochure.' },
+            { name: 'Comfort bungalow', sleeps: 'Sleeps 6', price: 545, compare: true, badge: 'Like-for-like', badgeType: 'match',
+              desc: 'The closest match to the chalet an operator sells \u2014 same size, same part of the park.' },
+            { name: 'Loungelodge', sleeps: 'Sleeps 4', price: 430, badge: 'Cheapest week', badgeType: 'only',
+              desc: 'Simple, older and the best-value roof on the park. Below anything an operator offers.' }
+          ],
+          operatorUnit: { name: 'Standard 3-bedroom chalet', sleeps: 'Sleeps 6', price: 689,
+            desc: 'Eurocamp\u2019s own chalet: three bedrooms, decking, beds made up on arrival. Allocated on the day.' }
+        },
+        {
+          id: 'august',
+          label: 'August peak',
+          dates: '1\u20138 August 2026',
+          nights: 7,
+          party: '2 adults + 2 children',
+          directUnits: [
+            { name: 'Waterlodge', sleeps: 'Sleeps 6', price: 1195, badge: 'Direct only', badgeType: 'only',
+              desc: 'Lakeside lodge with its own jetty and a terrace over the water. Never appears in an operator brochure.' },
+            { name: 'Comfort bungalow', sleeps: 'Sleeps 6', price: 795, compare: true, badge: 'Like-for-like', badgeType: 'match',
+              desc: 'The closest match to the chalet an operator sells \u2014 same size, same part of the park.' },
+            { name: 'Loungelodge', sleeps: 'Sleeps 4', price: 665, badge: 'Cheapest week', badgeType: 'only',
+              desc: 'Simple, older and the best-value roof on the park. Below anything an operator offers.' }
+          ],
+          operatorUnit: { name: 'Standard 3-bedroom chalet', sleeps: 'Sleeps 6', price: 965,
+            desc: 'Eurocamp\u2019s own chalet: three bedrooms, decking, beds made up on arrival. Allocated on the day.' }
+        },
+        {
+          id: 'october',
+          label: 'October half term',
+          dates: '24\u201331 October 2026',
+          nights: 7,
+          party: '2 adults + 2 children',
+          directUnits: [
+            { name: 'Waterlodge', sleeps: 'Sleeps 6', price: 495, badge: 'Direct only', badgeType: 'only',
+              desc: 'Lakeside lodge with its own jetty and a terrace over the water. Never appears in an operator brochure.' },
+            { name: 'Comfort bungalow', sleeps: 'Sleeps 6', price: 385, compare: true, badge: 'Like-for-like', badgeType: 'match',
+              desc: 'The closest match to the chalet an operator sells \u2014 same size, same part of the park.' },
+            { name: 'Loungelodge', sleeps: 'Sleeps 4', price: 315, badge: 'Cheapest week', badgeType: 'only',
+              desc: 'Simple, older and the best-value roof on the park. Below anything an operator offers.' }
+          ],
+          operatorUnit: { name: 'Standard 3-bedroom chalet', sleeps: 'Sleeps 6', price: 349,
+            desc: 'Discounted late-season to fill the allocation \u2014 the same chalet, beds made up, for less than the park charges itself.' }
+        }
+      ]
+    },
+    { id: 'kempervennen', label: 'De Kempervennen', comingSoon: true },
+    { id: 'beekse',       label: 'Beekse Bergen',   comingSoon: true },
+    { id: 'depaal',       label: 'De Paal',         comingSoon: true }
+  ]
+};
+
+let cmpPark = 'terspegelt';
+let cmpPeriod = 'may';
+
+const money = n => CMP.currency + Number(n).toLocaleString('en-GB');
+const cmpParkById = id => CMP.parks.find(p => p.id === id);
+
+function selectCmpPark(id){
+  const park = cmpParkById(id);
+  if (!park || park.comingSoon) return;
+  cmpPark = id;
+  cmpPeriod = park.periods[0].id;
+  renderCompare();
+}
+function selectCmpPeriod(id){ cmpPeriod = id; renderCompare(); }
+
+function unitRow(u, img){
+  const thumb = `<div class="cmp-unit-thumb" style="background-image:url('${img}')"></div>`;
+  const badge = u.badge ? `<span class="cmp-unit-badge ${u.badgeType === 'only' ? 'only' : ''}">${u.badge}</span>` : '';
+  return `<div class="cmp-unit">
+    ${thumb}
+    <div>
+      <div class="cmp-unit-name">${u.name}</div>
+      <div class="cmp-unit-meta">${u.sleeps}</div>
+      <div class="cmp-unit-desc">${u.desc}</div>
+      ${badge}
+    </div>
+    <div class="cmp-unit-price">${money(u.price)}<span class="cmp-unit-per">the week</span></div>
+  </div>`;
+}
+
+
+const LIVE_REVIEWS = {};   // filled by loadGoogleReviews(); falls back to the data above
+
+function reviewBlock(r){
+  if (!r || !r.rating) return '';
+  const full = Math.round(r.rating);
+  const stars = '\u2605'.repeat(full) + '\u2606'.repeat(5 - full);
+  const link = r.url
+    ? `<a class="cmp-reviews-link" href="${r.url}" target="_blank" rel="noopener">See these reviews at the source &#8599;</a>`
+    : `<button class="cmp-reviews-link" onclick="showPage('reviews')">Read guest reviews of this park &rarr;</button>`;
+  return `<div class="cmp-reviews">
+    <div class="cmp-rating">
+      <span class="cmp-rating-score">${r.rating.toFixed(1)}</span>
+      <span class="cmp-rating-stars">${stars}</span>
+      <span class="cmp-rating-count">${r.count} reviews &middot; ${r.source}</span>
+    </div>
+    ${(r.quotes||[]).slice(0,2).map(q => `<div class="cmp-quote"><p>&ldquo;${q.text}&rdquo;</p><span>${q.author}</span></div>`).join('')}
+    ${link}
+  </div>`;
+}
+
+function renderCompare(){
+  const board = document.getElementById('cmp-board');
+  if (!board) return;
+  const park = cmpParkById(cmpPark);
+  const period = park.periods.find(p => p.id === cmpPeriod) || park.periods[0];
+  const loc = (typeof locations !== 'undefined') ? locations.find(l => l.id === park.locId) : null;
+  const img = (loc && loc.img) ? loc.img : 'images/terspegelt.jpg';
+
+  /* park tabs */
+  document.getElementById('cmp-park-tabs').innerHTML = CMP.parks.map(p =>
+    `<button class="cmp-tab ${p.id === cmpPark ? 'active' : ''}" ${p.comingSoon ? 'disabled title="Not compared yet"' : ''} onclick="selectCmpPark('${p.id}')">${p.label}${p.comingSoon ? ' \u00B7 soon' : ''}</button>`
+  ).join('');
+
+  /* period tabs */
+  document.getElementById('cmp-period-tabs').innerHTML = park.periods.map(p =>
+    `<button class="cmp-tab ${p.id === period.id ? 'active' : ''}" onclick="selectCmpPeriod('${p.id}')">${p.label}</button>`
+  ).join('');
+
+  /* basis of comparison */
+  document.getElementById('cmp-basis').innerHTML =
+    `<span>&#128197; <b>${period.dates}</b></span>
+     <span>&#127769; <b>${period.nights} nights</b></span>
+     <span>&#128106; <b>${period.party}</b></span>
+     <span>&#128205; ${park.town}</span>`;
+
+  const cheapest = period.directUnits.reduce((a, b) => a.price < b.price ? a : b);
+  const match = period.directUnits.find(u => u.compare) || cheapest;
+  const gap = period.operatorUnit.price - match.price;   // + = direct cheaper, − = operator cheaper
+  const pct = Math.round(Math.abs(gap) / Math.max(period.operatorUnit.price, match.price) * 100);
+  const op = park.operator;
+
+  /* Live Google reviews replace the fallback ones as soon as they arrive */
+  const live = LIVE_REVIEWS[park.locId];
+  const directRev = live ? {
+    rating: live.rating || park.direct.rating,
+    count: live.count || park.direct.reviewCount,
+    source: 'Google reviews for the park',
+    quotes: live.quotes,
+    url: live.placeUri
+  } : {
+    rating: park.direct.rating, count: park.direct.reviewCount,
+    source: park.direct.reviewSource, quotes: park.direct.quotes, url: ''
+  };
+  const opRev = { rating: op.rating, count: op.reviewCount, source: op.reviewSource, quotes: op.quotes, url: op.reviewsUrl || '' };
+
+  board.innerHTML = `
+    <div class="cmp-col cmp-col-direct">
+      <div class="cmp-col-head">
+        <div class="cmp-route">Book direct with the park</div>
+        <div class="cmp-col-name">${park.direct.brand}</div>
+        <div class="cmp-col-line">${park.direct.line}</div>
+        ${gap > 0 ? '<span class="cmp-flag">Cheaper this week</span>' : ''}
+      </div>
+      <div class="cmp-units">${period.directUnits.map(u => unitRow(u, img)).join('')}</div>
+      ${reviewBlock(directRev)}
+      <div class="cmp-foot">
+        <div class="cmp-total">
+          <span class="cmp-total-label">Same size of chalet,<br>booked direct</span>
+          <span class="cmp-total-price">${money(match.price)}</span>
+        </div>
+        <a class="cmp-cta cmp-cta-primary" href="${park.direct.url}" target="_blank" rel="noopener">Book direct at ${park.direct.brand} &rarr;</a>
+        <div class="cmp-cta-note">Opens the park&rsquo;s own booking page &middot; may earn us a small commission</div>
+      </div>
+    </div>
+
+    <div class="cmp-col cmp-col-op">
+      <div class="cmp-col-head">
+        <div class="cmp-route">Book through a UK operator</div>
+        <div class="cmp-col-name">${op.brand}</div>
+        <div class="cmp-col-line">${op.line}</div>
+        ${gap < 0 ? '<span class="cmp-flag cmp-flag-op">Cheaper this week</span>' : ''}
+      </div>
+      <div class="cmp-units">${unitRow(period.operatorUnit, img)}</div>
+      ${reviewBlock(opRev)}
+      <div class="cmp-foot">
+        <div class="cmp-total">
+          <span class="cmp-total-label">${period.operatorUnit.name},<br>booked through ${op.brand}</span>
+          <span class="cmp-total-price">${money(period.operatorUnit.price)}</span>
+        </div>
+        <a class="cmp-cta cmp-cta-sec" href="${op.url}" target="_blank" rel="noopener">See it on ${op.brand} &rarr;</a>
+        <div class="cmp-cta-note">Opens ${op.brand} &middot; we earn nothing from this link</div>
+      </div>
+    </div>`;
+
+  let verdict;
+  if (gap > 0){
+    verdict = `<span class="cmp-verdict-num">${money(gap)} less</span>
+      <span class="cmp-verdict-text">for the same size of chalet, booked yourself at <b>${park.name}</b> for ${period.dates} \u2014 about ${pct}% cheaper. The ${cheapest.name} at ${money(cheapest.price)} isn&rsquo;t sold through ${op.brand} at all, but their price includes service you&rsquo;d arrange yourself.</span>`;
+  } else if (gap < 0){
+    verdict = `<span class="cmp-verdict-num">${money(-gap)} less</span>
+      <span class="cmp-verdict-text">through <b>${op.brand}</b> this week \u2014 about ${pct}% under the park&rsquo;s own rate for a comparable chalet. Quiet weeks are where operators discount hardest. Direct still gets you the ${cheapest.name} at ${money(cheapest.price)} and the lodges they don&rsquo;t sell, if that matters more than the total.</span>`;
+  } else {
+    verdict = `<span class="cmp-verdict-text">For ${period.dates} the two routes land on the same price for a comparable chalet. Choose on what you get: more choice of accommodation direct, less to arrange through ${op.brand}.</span>`;
+  }
+  document.getElementById('cmp-verdict').innerHTML = verdict;
+
+  document.getElementById('cmp-disclaimer').innerHTML =
+    (CMP.pricesVerified
+      ? ''
+      : '<span class="cmp-unchecked">Sample figures \u2014 not yet checked</span><br>') +
+    `These are indicative &ldquo;from&rdquo; prices for ${period.dates}, ${period.party}, gathered to show the typical gap between the two routes` +
+    (CMP.pricesVerified ? ` and last checked on ${CMP.checkedOn}` : '') +
+    `. They are not live quotes: availability and price change daily, and the exact figure is always on the booking site itself. We take no bookings and hold no details \u2014 both buttons hand you straight over.`;
+}
+
 buildPicks();
-buildPriceComparator();
 buildListView();
+renderCompare();
 loadGoogleReviews();
 </script>
 </body>
